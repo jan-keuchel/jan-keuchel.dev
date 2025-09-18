@@ -1,0 +1,10 @@
+- name: Home
+  link: /
+- name: CV
+  link: /cv.html
+- name: Lecture Notes
+  link: /lecture-notes.html
+- name: Projects
+  link: /projects.html
+- name: Books
+  link: /books.html

@@ -1,0 +1,27 @@
+collections:
+  lecture-notes:
+    output:
+      true
+  books:
+    output:
+      true
+
+defaults:
+  - scope:
+      path: ""
+      type: "lecture-notes"
+    values:
+      layout: "lecture-notes"
+  - scope:
+      path: ""
+      type: "books"
+    values:
+      layout: "book"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+exclude:
+  - scripts/

@@ -1,0 +1,6 @@
+- name: Theoretische Informatik 2
+  link: /lecture-notes/theoretical-computer-science-2
+- name: Angewandte Kryptographie
+  link: /lecture-notes/introduction-to-applied-cryptography
+- name: Datensicherheitsgrundlagen
+  link: /lecture-notes/datensicherheitsgrundlagen
