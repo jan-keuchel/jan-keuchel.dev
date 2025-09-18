@@ -5,7 +5,23 @@ layout: default
 <ul>
     {% for book in site.books %}
         <li>
-            <a href="{{ book.url }}">{{ book.title }}</a>
+            <article> 
+                <a href="{{ book.url }}">
+                    <div>
+                        <h3>{{ book.title }}</h3>
+                        <div>
+                            <p>
+                                {{ book.desc }}
+                            </p>
+                        </div>
+                        <div>
+                            <time>
+                                {{ book.published }}
+                            </time>
+                        </div>
+                    </div>
+                </a>
+            </article>
         </li>
     {% endfor %}
 </ul>

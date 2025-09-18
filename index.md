@@ -10,8 +10,23 @@ layout: default
             <ul>
                 {% for post in year.items %}
                     <li>
-                        <a href="{{ post.url }}">{{ post.title }}</a>
-                        <span>({{ post.date | date: "%b %d" }})</span>
+                        <article> 
+                            <a href="{{ post.url }}">
+                                <div>
+                                    <h3>{{ post.title }}</h3>
+                                    <div>
+                                        <p>
+                                            {{ post.desc }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <time>
+                                            {{ post.published }}
+                                        </time>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
                     </li>
                 {% endfor %}
             </ul>
