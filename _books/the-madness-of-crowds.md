@@ -1,5 +1,5 @@
 ---
-title: Equal is Unfair
+title: The Madness of Crowds
 authors:
     - Douglass Murray
 year: 2020
