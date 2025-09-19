@@ -3,15 +3,22 @@
     <li>
         <a href="{{ item.url }}" class="card mb-05">
             <article>
-                <div>
-                    <h3 class="text-primary mb-025">{{ item.title }}</h3>
-                    <div class="text-secondary mb-1">
-                        <p>
-                        {{ item.desc }}
-                        </p>
-                    </div>
-                    <div class="metadata">
+                <h3 class="text-primary mb-025">{{ item.title }}</h3>
+                <div class="text-secondary mb-1">
+                    <p>
+                    {{ item.desc }}
+                    </p>
+                </div>
+                <div class="metadata">
+                    <div metadata-left>
                         <time class="metadata-date">{{ item.published }}</time>
+                        {% if item.language == "en" %}
+                        <img src="/assets/images/flag-usa.png" class="metadata-language-flag" alt="German">
+                        {% elsif item.language == "de" %}
+                        <img src="/assets/images/flag-germany.png" class="metadata-language-flag" alt="German">
+                        {% endif %}
+                    </div>
+                    <div metadata-right>
                         {% if item.logo %}
                         <img src="{{ item.logo }}" alt="logo" class="metadata-logo">
                         {% endif %}

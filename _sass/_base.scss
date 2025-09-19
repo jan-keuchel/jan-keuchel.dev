@@ -180,13 +180,24 @@ footer {
   margin-top: 0.5rem;    /* spacing from previous content */
   color: var(--col-text-secondary); /* use your existing text-secondary color */
 }
+.metadata-left {
+  display: flex;
+}
+.metadata-right {
+  display: flex;
+}
 
 .metadata-date {
   font-size: 0.9rem;
   opacity: 0.8;
 }
+.metadata-language-flag {
+  max-height: 0.8rem;
+  width: auto;
+}
 
 .metadata-logo {
-  max-height: 1.5rem;
+  max-height: 1.25rem;
   width: auto;
+  display: block;
 }
