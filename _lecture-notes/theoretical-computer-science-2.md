@@ -2,7 +2,7 @@
 title: Theoretical Computer Science
 desc: Der beste Kurs des Grundstudiums!
 published: 17.07.2024
-logo: /assets/logos/HKA.png
+logo: /assets/images/HKA.png
 source_url: https://www.h-ka.de/
 ---
 # Theoretical Computer Science

@@ -2,7 +2,7 @@
 title: Applied Cryptography
 desc: Eine absolute Empfehlung für all diejenigen, die an der HKA studieren müssen....
 published: 17.07.2025
-logo: /assets/logos/HKA.png
+logo: /assets/images/HKA.png
 ---
 # Applied Cryptography
 
