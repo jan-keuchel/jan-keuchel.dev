@@ -1,24 +1,24 @@
 <ul class="item-list">
-        {% for item in include.collection %}
-        <li>
-                <a href="{{ item.url }}" class="card mb-05">
-                        <article>
-                                <div>
-                                        <h3 class="text-primary mb-025">{{ item.title }}</h3>
-                                        <div class="text-secondary mb-1">
-                                                <p>
-                                                {{ item.desc }}
-                                                </p>
-                                        </div>
-                                        <div class="metadata">
-                                                <time class="metadata-date">{{ item.published }}</time>
-                                                {% if item.logo %}
-                                                        <img src="{{ item.logo }}" alt="logo" class="metadata-logo">
-                                                {% endif %}
-                                        </div>
-                                </div>
-                        </article>
-                </a>
-        </li>
-        {% endfor %}
+    {% for item in include.collection %}
+    <li>
+        <a href="{{ item.url }}" class="card mb-05">
+            <article>
+                <div>
+                    <h3 class="text-primary mb-025">{{ item.title }}</h3>
+                    <div class="text-secondary mb-1">
+                        <p>
+                        {{ item.desc }}
+                        </p>
+                    </div>
+                    <div class="metadata">
+                        <time class="metadata-date">{{ item.published }}</time>
+                        {% if item.logo %}
+                        <img src="{{ item.logo }}" alt="logo" class="metadata-logo">
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+        </a>
+    </li>
+    {% endfor %}
 </ul>
