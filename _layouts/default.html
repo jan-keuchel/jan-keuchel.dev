@@ -4,6 +4,19 @@
                 <meta charset="utf-8">
                 <title>{{ page.title }}</title>
                 <link rel="stylesheet" href="/assets/css/styles.css">
+                <script>
+                        MathJax = {
+                                tex: {
+                                        inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                        processEscapes: true
+                                },
+                                chtml: {
+                                        scale: 1.0
+                                }
+                        };
+                </script>
+                <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
         </head>
         <body class="layout-{{ page.layout }}">
                 {% include header.html %}
