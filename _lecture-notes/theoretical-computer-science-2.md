@@ -1,5 +1,5 @@
 ---
-title: Theoretical Computer Science
+title: Theoretische Informatik 2
 desc: Der beste Kurs des Grundstudiums!
 published: 17.07.2024
 logo: /assets/images/HKA.png
