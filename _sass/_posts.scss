@@ -1,0 +1,28 @@
+.content-post h1 {
+  @extend .mb-1;
+}
+
+.content-post h2 {
+  @extend .mb-05;
+}
+
+.content-post h3, h4, h5 {
+  @extend .mb-025;
+}
+
+.content-post p {
+  @extend .mb-025;
+  opacity: 0.8;
+}
+
+.content-post ul {
+  list-style: square;
+  list-style-position: outside;
+  margin-left: 1rem;
+}
+
+.content-post ol {
+  list-style-position: outside;
+  padding-left: 0;
+  margin-left: 2rem;
+}
