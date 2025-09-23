@@ -31,5 +31,12 @@ defaults:
     values:
       layout: "project"
 
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  syntax_highlighter: rouge
+
 exclude:
   - scripts/
+  - working_files/

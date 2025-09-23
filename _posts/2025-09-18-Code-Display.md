@@ -5,8 +5,8 @@ published: 18.09.2025
 ---
 # CODE
 
-This article is about displaying code. Either inline a webpage like this: `int i = 0` or as a block:
-```go
+This article is about displaying code. Either inline a webpage like this: `int i = 0;` or as a block:
+{% highlight go linenos %}
 package main
 
 include (
@@ -16,7 +16,7 @@ include (
 func main() {
     fmt.Println("This is a test!!!")
 }
-```
+{% endhighlight %}
 
 # Math
 Another thing to test is the use of LaTeX. In this case, it is achieved via KaTeX. This $x$ is inline math. While this block:
