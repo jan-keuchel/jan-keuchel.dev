@@ -26,3 +26,12 @@
   padding-left: 0;
   margin-left: 2rem;
 }
+
+.content-post img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Optional: centers images */
+}
+
