@@ -63,7 +63,7 @@ def main():
         frontmatter += f"title: {title}\n"
         frontmatter += "desc: [description of the file]\n"
         frontmatter += "published: [Date of publishing]\n"
-        frontmatter += "logo: /assets/logos/[Logo-name.png]\n"
+        frontmatter += "logo: /assets/images/[Logo-name.png]\n"
         frontmatter += "source_url: [https://source-of-the-lecture.com/lecture-page]\n"
         frontmatter += "---"
         create_file(file_path, frontmatter)
