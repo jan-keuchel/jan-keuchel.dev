@@ -2,14 +2,12 @@
 title: jankeuchel.dev
 layout: default
 ---
-<ul>
+<ul class="plain-list">
     {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
     {% for year in postsByYear %}
         <li>
             <h2 class="mb-1 bb">{{ year.name }}</h2>
-            <ul>
-                {% include item-list.html collection=year.items %}
-            </ul>
+            {% include item-list.html collection=year.items %}
             <div class="mb-1"></div>
         </li>
     {% endfor %}
