@@ -2,11 +2,16 @@
   --col-text: #F3F7F0;
   --col-text-secondary: color-mix(in srgb, var(--col-text) 70%, black);
   --col-accent: #F2545B;
+  --col-unlicked-link-accent: #f68d92;
   --col-background-header: #0C181D;
   --col-background-nav: color-mix(in srgb, var(--col-background-header) 95%, white);
   --col-background-content: color-mix(in srgb, var(--col-background-nav) 95%, white);
   --col-border: color-mix(in srgb, var(--col-background-nav) 90%, white);
   --col-link: #999EFF;
+
+  --col-highlight-red: #F2545B;
+  --col-highlight-green: #4DB6AC;
+  --col-highlight-blue: #64B5F6;
 }
 
 // ------------------------------
@@ -115,11 +120,11 @@ footer {
 
 .content {
   width: 100%;
-  max-width: 750px;
+  max-width: 800px;
   margin: auto;
   text-align: justify;
   padding: 2rem;
-  line-height: 1.4;
+  line-height: 1.5;
   color: var(--col-text);
 }
 
@@ -144,7 +149,36 @@ footer {
   background-color: var(--col-border);
 }
 
+// -------------------------------
+// --------- highlight -----------
+// -------------------------------
 
+.highlight-block {
+  padding: 1em 1.2em;
+  margin: 1.2em 0;
+  color: var(--col-text);
+}
+
+.highlight-quote {
+  background: color-mix(in srgb, var(--col-background-content) 90%, white);
+  border-left: 6px solid color-mix(in srgb, var(--col-background-content) 70%, white);
+  font-style: italic;
+}
+
+.highlight-warning {
+  background: color-mix(in srgb, var(--col-background-content) 90%, var(--col-highlight-red));
+  border-left: 6px solid color-mix(in srgb, var(--col-background-content) 60%, var(--col-highlight-red));
+}
+
+.highlight-hint {
+  background: color-mix(in srgb, var(--col-background-content) 90%, var(--col-highlight-green));
+  border-left: 6px solid color-mix(in srgb, var(--col-background-content) 60%, var(--col-highlight-green));
+}
+
+.highlight-note {
+  background: color-mix(in srgb, var(--col-background-content) 90%, var(--col-highlight-blue));
+  border-left: 6px solid color-mix(in srgb, var(--col-background-content) 60%, var(--col-highlight-blue));
+}
 
 // -----------------------------
 // ---------- Modular ----------
@@ -171,6 +205,12 @@ footer {
 }
 .bb { // border bottom
   border-bottom: 2px solid var(--col-text);
+}
+.v-space-1 {
+  height: 1rem;
+}
+.v-space-2 {
+  height: 2rem;
 }
 
 .metadata {
