@@ -196,44 +196,6 @@ footer {
 // -----------------------------
 // ------------ TOC ------------
 // -----------------------------
-.toc {
-  margin: 1.5rem 0;
-  padding: 1.2rem;
-  border-radius: 6px;
-}
-
-.toc ul {
-  margin-left: 0;
-  list-style-type: none;
-}
-
-.toc li {
-  margin: 0.5rem 0;
-}
-
-.toc a {
-  color: var(--col-link);
-  text-decoration: none;
-  font-size: 1.1rem;
-  line-height: 1.5;
-}
-
-.toc a:hover {
-  color: var(--col-accent);
-  text-decoration: underline;
-}
-
-.toc-level-1 {
-  padding-left: 0;
-}
-
-.toc-level-2 {
-  padding-left: 1.5rem;
-}
-
-.toc-level-3 {
-  padding-left: 3rem;
-}
 
 // -----------------------------
 // ---------- Modular ----------
