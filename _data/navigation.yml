@@ -1,7 +1,7 @@
 - name: Home
   link: /
 - name: CV
-  link: /cv.html
+  link: /assets/cv.pdf
 - name: Lecture Notes
   link: /lecture-notes.html
 - name: Projects
