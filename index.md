@@ -1,5 +1,5 @@
 ---
-title: jankeuchel.dev
+title: keuchel.dev
 layout: default
 ---
 <ul class="plain-list">
