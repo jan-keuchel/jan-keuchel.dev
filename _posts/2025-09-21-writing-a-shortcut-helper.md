@@ -285,4 +285,4 @@ Here's the approach I've taken in designing this script in short:
 - Step by step, use string manipulation tools to further and further get to the desired output.
 - Display the output somehow and let the user - you - select one of the items.
 - Translate the variables.
-- In case you're aware of some better way of doing this, let me know.Execute the command.
+- In case you're aware of some better way of doing this, let me know.
