@@ -24,3 +24,11 @@ This algorithm is already way quicker -- see lecture notes or the book for a det
 <video controls="" preload="none">
 <source src="/assets/videos/CH_graham_scan.mp4" type="video/mp4">
 </video>
+
+### Jarvis' March
+Another algorithm is the so called Jarvis' March or Gift Wrapping Algorithm which is an output sensitive algorithm.
+This algorithm starts out at the left most point and then circulates around the set of points always finding the next vertex in the convex hull.
+The running time is $$\mathcal{O}(n \cdot k)$$ with $$k$$ being the number of vertices in the convex hull.
+<video controls="" preload="none">
+<source src="/assets/videos/CH_jarvis_march.mp4" type="video/mp4">
+</video>
