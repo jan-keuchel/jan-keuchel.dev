@@ -94,6 +94,22 @@ header {
 }
 #keuchel:hover {
   text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+
+// ----------------------------
+// ---------- Links -----------
+// ----------------------------
+
+a {
+  color: var(--col-unlicked-link-accent);
+  text-decoration: none;
+  margin: 0px 0px;
+}
+
+a:hover {
+  color: var(--col-accent);
+  text-decoration: underline;
 }
 
 
@@ -251,6 +267,7 @@ footer {
 }
 .card:hover {
   background-color: var(--col-border);
+  text-decoration: none;
 }
 
 .title-with-icon {

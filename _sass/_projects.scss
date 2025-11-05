@@ -5,7 +5,7 @@
 
 .content-project h2 {
   @extend .mb-05;
-  @extend .mt-3;
+  @extend .mt-2;
 }
 
 .content-project h3, h4, h5, h6 {
@@ -29,19 +29,9 @@
 .content-project video {
   width: 100%;
   max-width: 100%;
+  aspect-ratio: 5 / 4;
   height: auto;
   display: block;
-  margin: 0 auto; 
+  margin: 1em 0em; 
   background-color: black;
-}
-
-.content-project a {
-  color: var(--col-unlicked-link-accent);
-  text-decoration: none;
-  margin: 0px 0px;
-}
-
-.content-project a:hover {
-  color: var(--col-accent);
-  text-decoration: underline;
 }

@@ -5,7 +5,7 @@
 
 .content-post h2 {
   @extend .mb-05;
-  @extend .mt-3;
+  @extend .mt-2;
 }
 
 .content-post h3, h4, h5, h6 {
@@ -24,15 +24,4 @@
   height: auto;
   display: block;
   margin: 0 auto; /* Optional: centers images */
-}
-
-.content-post a {
-  color: var(--col-unlicked-link-accent);
-  text-decoration: none;
-  margin: 0px 0px;
-}
-
-.content-post a:hover {
-  color: var(--col-accent);
-  text-decoration: underline;
 }
