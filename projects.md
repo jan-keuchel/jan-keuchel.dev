@@ -2,6 +2,8 @@
 title: Projects
 layout: default
 ---
-Here I will basically just put up a list of interesting projects I have undertaken. Most of it will be regarding Computer Science.
+I believe that some of the projects I'm working on are worth highlighting and could be interesting to other people or provide value in some way.
+Those projects are listed below.
+Further projects can be found on [GitHub](https://github.com/jan-keuchel).
 
 {% include item-list.html collection=site.projects %}
