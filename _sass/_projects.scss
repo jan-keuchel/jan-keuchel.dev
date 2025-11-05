@@ -1,0 +1,46 @@
+.content-project h1 {
+  @extend .mb-1;
+  @extend .mt-1;
+}
+
+.content-project h2 {
+  @extend .mb-05;
+  @extend .mt-3;
+}
+
+.content-project h3, h4, h5, h6 {
+  @extend .mb-025;
+  @extend .mt-2;
+}
+
+.content-project p {
+  @extend .mb-025;
+  opacity: 0.8;
+}
+
+.content-project img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Optional: centers images */
+}
+
+.content-project video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Optional: centers images */
+}
+
+.content-project a {
+  color: var(--col-unlicked-link-accent);
+  text-decoration: none;
+  margin: 0px 0px;
+}
+
+.content-project a:hover {
+  color: var(--col-accent);
+  text-decoration: underline;
+}
