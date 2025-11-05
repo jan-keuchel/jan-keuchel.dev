@@ -2,6 +2,7 @@
 title: Writing a shortcut helper
 desc: This post shows my approach and steps to writing a shortcut helper in bash for hyprland using rofi.
 published: 21.09.2025
+language: en
 ---
 
 
