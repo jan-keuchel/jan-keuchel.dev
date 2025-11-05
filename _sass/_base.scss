@@ -321,6 +321,9 @@ footer {
 .mb-1 {
   margin-bottom: 1rem;
 }
+.mb-2 {
+  margin-bottom: 2rem;
+}
 .mt-1 {
   margin-top: 1rem;
 }
@@ -368,22 +371,3 @@ footer {
   width: auto;
   display: block;
 }
-
-// ----------------------------
-// --------- Headings ---------
-// ----------------------------
-.content-post h1 {
-  @extend .mb-1;
-  @extend .mt-1;
-}
-
-.content-post h2 {
-  @extend .mb-05;
-  @extend .mt-3;
-}
-
-.content-post h3, h4, h5, h6 {
-  @extend .mb-025;
-  @extend .mt-2;
-}
-
