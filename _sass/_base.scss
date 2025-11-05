@@ -1,17 +1,37 @@
 :root {
-  --col-text: #F3F7F0;
-  --col-text-secondary: color-mix(in srgb, var(--col-text) 70%, black);
-  --col-accent: #F2545B;
-  --col-unlicked-link-accent: #f68d92;
-  --col-background-header: #0C181D;
-  --col-background-nav: color-mix(in srgb, var(--col-background-header) 95%, white);
-  --col-background-content: color-mix(in srgb, var(--col-background-nav) 95%, white);
-  --col-border: color-mix(in srgb, var(--col-background-nav) 90%, white);
-  --col-link: #999EFF;
+  /* DARK as default theme */
+  --col-text:                 #F3F7F0;
+  --col-text-secondary:         color-mix(in srgb, var(--col-text) 70%, black);
+  --col-accent:               #F2545B;
+  --col-unlicked-link-accent: #F2545B;
+  // --col-unlicked-link-accent: #f68d92;
+  --col-background-header:    #0C181D;
+  --col-background-nav:         color-mix(in srgb, var(--col-background-header) 95%, white);
+  --col-background-content:     color-mix(in srgb, var(--col-background-nav) 95%, white);
+  --col-border:                 color-mix(in srgb, var(--col-background-nav) 90%, white);
+  --col-link:                 #999EFF;
 
-  --col-highlight-red: #F2545B;
-  --col-highlight-green: #4DE6AC;
-  --col-highlight-blue: #64B5F6;
+  --col-highlight-red:        #F2545B;
+  --col-highlight-green:      #4DE6AC;
+  --col-highlight-blue:       #64B5F6;
+}
+
+/* LIGHT overrides – only the ones that differ */
+[data-theme="light"] {
+  --col-text:               #3A343A;
+  --col-text-secondary:       color-mix(in srgb, var(--col-text) 85%, white);
+  --col-accent:               #E03E45;
+  --col-unlicked-link-accent: #E03E45;
+  // --col-unlicked-link-accent: #f28d91;
+  --col-background-header:  #D8DADC;
+  --col-background-nav:       color-mix(in srgb, var(--col-background-header) 38%, white);
+  --col-background-content:   color-mix(in srgb, var(--col-background-nav) 38%, white);
+  --col-border:               color-mix(in srgb, var(--col-background-nav) 90%, black);
+  --col-link:               #3B82F6;
+    
+  --col-highlight-red:      #EF4444;
+  --col-highlight-green:    #10B981;
+  --col-highlight-blue:     #0EA5E9;
 }
 
 // ------------------------------
@@ -101,6 +121,54 @@ nav a:hover {
   text-decoration: none;
 }
 
+nav > * {
+  vertical-align: middle;
+}
+
+// -------- Theme toggle --------
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  cursor: pointer;
+  margin: 0em 1em;
+}
+
+.theme-switch input { display: none; }
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #334155;               /* neutral */
+  border-radius: 50px;
+  transition: background .3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.slider svg { width: 16px; height: 16px; fill: #fff; }
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 18px; height: 18px;
+  left: 4px; top: 4px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform .3s;
+}
+
+/* Checked = Light mode */
+input:checked + .slider {
+  background: #a2a8b0;
+}
+
+input:checked + .slider::before {
+  transform: translateX(22px);
+}
 
 // ----------------------------
 // ---------- Footer ----------
@@ -113,7 +181,7 @@ footer {
 }
 
 .personal-links a {
-  color: #ffffff;
+  color: var(--col-text);
   text-decoration: none;
 }
 
