@@ -126,7 +126,6 @@ nav > * {
 }
 
 // -------- Theme toggle --------
-// -------- Theme toggle --------
 
 .theme-switch {
   display: inline-flex;
@@ -249,6 +248,17 @@ footer {
 }
 .card:hover {
   background-color: var(--col-border);
+}
+
+.title-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem; /* space between title and icon */
+}
+
+.title-with-icon .pdf-icon {
+  display: inline-flex;
+  vertical-align: middle;
 }
 
 // -------------------------------
