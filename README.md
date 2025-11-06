@@ -7,7 +7,7 @@ Static site built with Jekyll. Includes blog posts, lecture notes and project sh
 Work in progress.
 
 ## Todo's:
-- [ ] Link cards
+- [x] Link cards
     - [x] Wallpaper for project cards
     - [x] Add Tag on cards for "Ongoing"
     - [x] Remove place holder articles
@@ -15,11 +15,11 @@ Work in progress.
     - [x] Write introduction on main pages
     - [ ] Update CV
     - [x] 404 Page not found
-- [ ] Issues
+- [x] Issues
     - [x] Fix font issue in articles in ul listing
 - [x] Add Github Link inside a project
 - [ ] Setup Email
-- [ ] Questions
+- [x] Questions
     - [x] Is it possible to write entire page in tex instead of md?
         - Doesn't work
-- [ ] Write official pages
+- [x] Write official pages
