@@ -46,5 +46,13 @@ kramdown:
   toc_levels: 2..3
 
 exclude:
-  - scripts/
-  - working_files/
+  [
+    "scripts/",
+    "working_files/",
+    "controller.sh",
+    "README.md",
+    "temp/",
+    "myenv",
+    "Legal_gen",
+    "favicon_generation",
+  ]
