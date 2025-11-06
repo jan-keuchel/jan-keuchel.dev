@@ -14,7 +14,7 @@ Work in progress.
 - [ ] Main pages
     - [ ] Write introduction on main pages
     - [ ] Update CV
-    - [ ] 404 Page not found
+    - [x] 404 Page not found
 - [ ] Issues
     - [ ] Fix font issue in articles in ul listing
 - [x] Add Github Link inside a project
