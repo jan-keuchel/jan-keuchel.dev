@@ -2,6 +2,7 @@
 title: Lecture Notes
 layout: default
 ---
-Here you can find a selection of my notes of courses taught at HKA.
+To some of the lectures I've taken at HKA -- or to the ones I'm currently taking --, I create write-ups.
+This is what you can find on this page.
 
 {% include item-list.html collection=site.lecture-notes %}
