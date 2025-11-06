@@ -1,4 +1,5 @@
 <div id="toc-table">
+    <h2 class="no-toc">Contents</h2>
     <ul id="toc-list"></ul>
 </div>
 
@@ -8,6 +9,8 @@
         const nestedList = document.getElementById("toc-list");
 
         headings.forEach((heading, index) => {
+            if (heading.classList.contains("no-toc")) return;
+
             // Unique ID for each heading
             const headingId = "heading-" + index;
             heading.id = headingId;
