@@ -242,13 +242,15 @@ footer {
 .obligaroty-links {
   text-decoration: none;
   color: var(--col-link);
-  font-size: 0.8em;
+  font-size: 0.65em;
 }
 .obligaroty-links:hover {
+  color: var(--col-link);
   text-decoration: underline;
 }
 .sep {
-  margin: 0em 0.5em;
+  margin: 0em 0.2em;
+  font-size: 0.65em;
 }
 
 
@@ -450,6 +452,10 @@ footer {
   width: 100%;
   height: auto;
   margin: 1em 0em;
+}
+.px24-svg svg {
+  width: 24px;
+  height: 24px;
 }
 
 
