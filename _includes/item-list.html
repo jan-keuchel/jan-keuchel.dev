@@ -52,12 +52,12 @@
                         <div class="card-md-left">
                             {% if item.ongoing == true %}
                                 {% if item.language == "en" %}
-                                    <time class="card-md-date">last update: {{ item.published }}</time>
+                                    <time class="card-md-date">last update: {{ item.published | date: "%d.%m.%Y" }}</time>
                                 {% elsif item.language == "de" %}
-                                    <time class="card-md-date">zuletzt aktualisiert: {{ item.published }}</time>
+                                    <time class="card-md-date">zuletzt aktualisiert: {{ item.published | date: "%d.%m.%Y" }}</time>
                                 {% endif %}
                             {% else %}
-                                <time class="card-md-date">{{ item.published }}</time>
+                                <time class="card-md-date">{{ item.published | date: "%d.%m.%Y" }}</time>
                             {% endif %}
 
                             {% if item.language == "en" %}

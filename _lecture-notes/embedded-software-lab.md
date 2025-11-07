@@ -1,7 +1,7 @@
 ---
 title: Embedded Software Labor
 desc: Durchlauf des Labors des Moduls "Embedded Software"
-published: 07.11.2025
+published: 2025-11-07
 logo: /assets/images/HKA.png
 language: de
 ongoing: true

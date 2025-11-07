@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import os
-import yaml
+# import yaml
 import datetime
 
 # Directories
@@ -42,6 +42,7 @@ def main():
     title = input("Title: ").strip()
     slug = slugify(title)
     language = input("Language (en/de):")
+    today = datetime.date.today().strftime("%Y-%m-%d")
 
     if item_type == "book":
         authors = prompt_authors()
@@ -54,8 +55,9 @@ def main():
             frontmatter += f"  - {author}\n"
         frontmatter += f"year: {year}\n"
         frontmatter += "desc: [description of the file]\n"
-        frontmatter += "published: [Date of publishing]\n"
+        frontmatter += f"published: {today}\n"
         frontmatter += f"language: {language}\n"
+        frontmatter += "ongoing: true\n"
         frontmatter += "---"
         create_file(file_path, frontmatter)
 
@@ -64,21 +66,22 @@ def main():
         frontmatter = f"---\n"
         frontmatter += f"title: {title}\n"
         frontmatter += "desc: [description of the file]\n"
-        frontmatter += "published: [Date of publishing]\n"
+        frontmatter += f"published: {today}\n"
         frontmatter += "logo: /assets/images/[Logo-name.png]\n"
         frontmatter += "source_url: [https://source-of-the-lecture.com/lecture-page]\n"
         frontmatter += f"language: {language}\n"
+        frontmatter += "ongoing: true\n"
         frontmatter += "---"
         create_file(file_path, frontmatter)
 
     elif item_type == "blog":
-        today = datetime.date.today().strftime("%Y-%m-%d")
         file_path = os.path.join(POSTS_DIR, f"{today}-{slug}.md")
         frontmatter = "---\n"
         frontmatter += f"title: {title}\n"
         frontmatter += "desc: [description of the file]\n"
-        frontmatter += "published: [Date of publishing]\n"
+        frontmatter += f"published: {today}\n"
         frontmatter += f"language: {language}\n"
+        frontmatter += "ongoing: true\n"
         frontmatter += "---"
         create_file(file_path, frontmatter)
 
@@ -89,10 +92,11 @@ def main():
         frontmatter = "---\n"
         frontmatter += f"title: {title}\n"
         frontmatter += "desc: [description of the file]\n"
-        frontmatter += "published: [Date of publishing]\n"
+        frontmatter += f"published: {today}\n"
         frontmatter += f"language: {language}\n"
         frontmatter += f"ongoing: {ongoing}\n"
         frontmatter += f"github: {github}\n"
+        frontmatter += "ongoing: true\n"
         frontmatter += "---"
         create_file(file_path, frontmatter)
 if __name__ == "__main__":
