@@ -61,7 +61,7 @@ To better visualize and demonstrate what is happening along the way, I'm going t
 The snippet used for demonstation purposes only is this:
 
 {% highlight conf linenos %}
-{% include 2025-09-21-writing-a-shortcut-helper/snippet-00 %}
+{% include post_data/2025-09-21-writing-a-shortcut-helper/snippet-00 %}
 {% endhighlight %}
 
 {% comment %}{: .highlight-block .highlight-note}{% endcomment %}
@@ -79,7 +79,7 @@ Actually, I have another file just for the programs I use so that I can easily s
 Here's part of that file:
 
 {% highlight config linenos %}
-{% include 2025-09-21-writing-a-shortcut-helper/snippet-01 %}
+{% include post_data/2025-09-21-writing-a-shortcut-helper/snippet-01 %}
 {% endhighlight %}
 
 ## Breaking down the script.
@@ -99,7 +99,7 @@ grep "bind= " "$KEYBINDINGS_FILE"
 {% endhighlight %}
 - Output:
 {% highlight bash linenos %}
-{% include 2025-09-21-writing-a-shortcut-helper/snippet-02 %}
+{% include post_data/2025-09-21-writing-a-shortcut-helper/snippet-02 %}
 {% endhighlight %}
 
 At this point, the amount of spaces or tabs between words may vary.
@@ -113,7 +113,7 @@ grep "bind= " bindings.conf | \
 {% endhighlight %}
 - Output:
 {% highlight bash linenos %}
-{% include 2025-09-21-writing-a-shortcut-helper/snippet-03 %}
+{% include post_data/2025-09-21-writing-a-shortcut-helper/snippet-03 %}
 {% endhighlight %}
 
 {: .highlight-block .highlight-hint}
@@ -129,7 +129,7 @@ grep "bind= " bindings.conf | \
 {% endhighlight %}
 - Output:
 {% highlight bash linenos %}
-{% include 2025-09-21-writing-a-shortcut-helper/snippet-04 %}
+{% include post_data/2025-09-21-writing-a-shortcut-helper/snippet-04 %}
 {% endhighlight %}
 
 and subsequently remove every not needed space - such as after a comma 
@@ -143,7 +143,7 @@ grep "bind= " bindings.conf | \
 {% endhighlight %}
 - Output:
 {% highlight bash linenos %}
-{% include 2025-09-21-writing-a-shortcut-helper/snippet-05 %}
+{% include post_data/2025-09-21-writing-a-shortcut-helper/snippet-05 %}
 {% endhighlight %}
 
 or around the hash (#) at the starting point of the comment 
@@ -158,7 +158,7 @@ grep "bind= " bindings.conf | \
 {% endhighlight %}
 - Output:
 {% highlight bash linenos %}
-{% include 2025-09-21-writing-a-shortcut-helper/snippet-06 %}
+{% include post_data/2025-09-21-writing-a-shortcut-helper/snippet-06 %}
 {% endhighlight %}
 
 .
@@ -172,7 +172,7 @@ echo "$SHORTCUT_LIST" | awk -F ',' '{print $1" "$2"@:"$NF}'
 {% endhighlight %}
 - Output:
 {% highlight bash linenos %}
-{% include 2025-09-21-writing-a-shortcut-helper/snippet-07 %}
+{% include post_data/2025-09-21-writing-a-shortcut-helper/snippet-07 %}
 {% endhighlight %}
 
 {: .highlight-block .highlight-hint}
@@ -186,7 +186,7 @@ echo "$SHORTCUT_LIST" | awk -F ',' '{print $1" "$2"@:"$NF}' | column -s '@' -t
 {% endhighlight %}
 - Output:
 {% highlight bash linenos %}
-{% include 2025-09-21-writing-a-shortcut-helper/snippet-08 %}
+{% include post_data/2025-09-21-writing-a-shortcut-helper/snippet-08 %}
 {% endhighlight %}
 
 {: .highlight-block .highlight-hint}
@@ -251,7 +251,7 @@ grep '^\$' "$PROGRAMMS_FILE" | \
 {% endhighlight %}
 - Output:
 {% highlight bash linenos %}
-{% include 2025-09-21-writing-a-shortcut-helper/snippet-09 %}
+{% include post_data/2025-09-21-writing-a-shortcut-helper/snippet-09 %}
 {% endhighlight %}
 
 . Before executing the command, check if there are any variables inside the command.
@@ -268,7 +268,7 @@ fi
 ### The entire script
 
 {% highlight bash linenos %}
-{% include 2025-09-21-writing-a-shortcut-helper/snippet-10 %}
+{% include post_data/2025-09-21-writing-a-shortcut-helper/snippet-10 %}
 {% endhighlight %}
 ![Shortcut helper showcase](/assets/images/shortcut_helper_showcase.gif)
 
