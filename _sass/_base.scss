@@ -18,6 +18,13 @@
   --shadow-intensity: 0.12;
 }
 
+/* Make inline SVGs respond to dark mode */
+[data-theme="dark"] .full-width-img svg,
+[data-theme="dark"] .full-width-img img,
+[data-theme="dark"] .full-width-img object {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 /* LIGHT overrides – only the ones that differ */
 [data-theme="light"] {
   --col-text:               #3A343A;
@@ -437,6 +444,11 @@ footer {
 }
 .font1 {
   font-size: 1rem;
+}
+
+.full-width-img {
+  width: 100%;
+  height: auto;
 }
 
 
