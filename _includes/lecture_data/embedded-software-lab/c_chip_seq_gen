@@ -1,0 +1,30 @@
+{% raw %}
+short *generate_chip_sequence(int reg_sum[2]) {
+    short a[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    short b[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    short *code = (short *)calloc(SEQ_LEN, sizeof(short));
+
+    short a_new_lmb;
+    short b_new_lmb;
+    short code_bit;
+    
+    for (int i = 0; i < SEQ_LEN; i++) {
+        // Update code
+        code_bit = a[0] ^ b[10 - reg_sum[0]] ^ b[10 - reg_sum[1]];
+        code[i] = code_bit;
+
+        // Calculate new LMB
+        a_new_lmb = a[0] ^ a[7];
+        b_new_lmb = b[0] ^ b[1] ^ b[2] ^ b[4] ^ b[7] ^ b[8];
+
+        // Shift
+        sr(a);
+        sr(b);
+
+        a[9] = a_new_lmb;
+        b[9] = b_new_lmb;
+    }
+
+    return code;
+}
+{% endraw %}

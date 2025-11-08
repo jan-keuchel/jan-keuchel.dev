@@ -1,0 +1,94 @@
+{% raw %}
+import subprocess
+import re
+import statistics
+import matplotlib.pyplot as plt
+
+# Configuration
+source_files = {
+    "C": "main.c",
+    "C++": "main.cpp"
+}
+compilers = {
+    "C": "gcc",
+    "C++": "g++"
+}
+optimization_levels = ["-O0", "-O1", "-O2", "-O3"]
+runs_per_config = 10
+input_file = "input"
+
+# Regex patterns to extract times
+patterns = {
+    "generation": re.compile(r"Generation of sequence numbers took:\s*([\d.]+)\s*microseconds"),
+    "translation": re.compile(r"Translation of sequence numbers took:\s*([\d.]+)\s*microseconds"),
+    "cp": re.compile(r"cp calculation took:\s*([\d.]+)\s*microseconds"),
+    "total": re.compile(r"Total:\s*([\d.]+)\s*microseconds"),
+}
+
+results = {lang: {key: [] for key in patterns} for lang in source_files}
+
+for lang, src in source_files.items():
+    compiler = compilers[lang]
+    print(f"\n--- {lang} ---")
+
+    for opt in optimization_levels:
+        binary = f"decoder_{lang}_{opt.replace('-', '')}"
+        compile_cmd = [compiler, src, "-o", binary, opt]
+        subprocess.run(compile_cmd, check=True)
+
+        generation_times = []
+        translation_times = []
+        cp_times = []
+        total_times = []
+
+        for _ in range(runs_per_config):
+            result = subprocess.run([f"./{binary}", input_file], capture_output=True, text=True)
+            output = result.stdout
+
+            gen = patterns["generation"].search(output)
+            trans = patterns["translation"].search(output)
+            cp = patterns["cp"].search(output)
+            total = patterns["total"].search(output)
+
+            if gen and trans and cp and total:
+                generation_times.append(float(gen.group(1)) / 1000.0)  # convert µs → ms
+                translation_times.append(float(trans.group(1)) / 1000.0)  # convert µs → ms
+                cp_times.append(float(cp.group(1)) / 1000.0)  # convert µs → ms
+                total_times.append(float(total.group(1)) / 1000.0)  # convert µs → ms
+            else:
+                print(f"Could not parse output for {binary}")
+                print(output)
+                break
+
+        # Store averages
+        results[lang]["generation"].append(statistics.mean(generation_times))
+        results[lang]["translation"].append(statistics.mean(translation_times))
+        results[lang]["cp"].append(statistics.mean(cp_times))
+        results[lang]["total"].append(statistics.mean(total_times))
+
+        print(f"{lang} {opt}: generation={results[lang]['generation'][-1]:.3f} ms, "
+            f"translation={results[lang]['translation'][-1]:.3f} ms, "
+            f"correlational product={results[lang]['cp'][-1]:.3f} ms, "
+            f"total={results[lang]['total'][-1]:.3f} ms")
+
+# ---- Plot results ----
+fig, axes = plt.subplots(4, 1, figsize=(8, 10), sharex=True)
+
+for i, key in enumerate(["generation", "translation", "cp", "total"]):
+    for lang in results:
+        axes[i].plot(optimization_levels,
+                     results[lang][key],
+                     marker="o",
+                     label=lang)
+    axes[i].set_ylabel(f"{key.capitalize()} time (ms)")
+    axes[i].grid(True)
+    axes[i].legend()
+    # axes[i].set_title(f"{key.capitalize()} time vs Optimization level")
+
+axes[-1].set_xlabel("Optimization Flag")
+plt.tight_layout()
+plt.savefig("decoder_timing_comparison.png")
+plt.close()
+
+# print("\nResults saved to 'decoder_timing_comparison.png'")
+{% endraw %}
