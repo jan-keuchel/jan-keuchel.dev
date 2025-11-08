@@ -41,6 +41,9 @@ defaults:
 markdown: kramdown
 highlighter: rouge
 
+plugins:
+  - jekyll-feed
+
 kramdown:
   syntax_highlighter: rouge
   toc_levels: 2..3
