@@ -55,9 +55,10 @@ def main():
             frontmatter += f"  - {author}\n"
         frontmatter += f"year: {year}\n"
         frontmatter += "desc: [description of the file]\n"
-        frontmatter += f"published: {today}\n"
+        frontmatter += f"date: {today}\n"
         frontmatter += f"language: {language}\n"
         frontmatter += "ongoing: true\n"
+        frontmatter += "published: false"
         frontmatter += "---"
         create_file(file_path, frontmatter)
 
@@ -66,11 +67,12 @@ def main():
         frontmatter = f"---\n"
         frontmatter += f"title: {title}\n"
         frontmatter += "desc: [description of the file]\n"
-        frontmatter += f"published: {today}\n"
+        frontmatter += f"date: {today}\n"
         frontmatter += "logo: /assets/images/[Logo-name.png]\n"
         frontmatter += "source_url: [https://source-of-the-lecture.com/lecture-page]\n"
         frontmatter += f"language: {language}\n"
         frontmatter += "ongoing: true\n"
+        frontmatter += "published: false"
         frontmatter += "---"
         create_file(file_path, frontmatter)
 
@@ -79,9 +81,10 @@ def main():
         frontmatter = "---\n"
         frontmatter += f"title: {title}\n"
         frontmatter += "desc: [description of the file]\n"
-        frontmatter += f"published: {today}\n"
+        frontmatter += f"date: {today}\n"
         frontmatter += f"language: {language}\n"
         frontmatter += "ongoing: true\n"
+        frontmatter += "published: false"
         frontmatter += "---"
         create_file(file_path, frontmatter)
 
@@ -92,11 +95,12 @@ def main():
         frontmatter = "---\n"
         frontmatter += f"title: {title}\n"
         frontmatter += "desc: [description of the file]\n"
-        frontmatter += f"published: {today}\n"
+        frontmatter += f"date: {today}\n"
         frontmatter += f"language: {language}\n"
         frontmatter += f"ongoing: {ongoing}\n"
         frontmatter += f"github: {github}\n"
         frontmatter += "ongoing: true\n"
+        frontmatter += "published: false"
         frontmatter += "---"
         create_file(file_path, frontmatter)
 if __name__ == "__main__":
