@@ -1,7 +1,7 @@
 ---
 title: Display of code on a webpage
 desc: This document shows how code looks on a webpage
-published: 18.09.2025
+date: 18.09.2025
 language: en
 ---
 # CODE

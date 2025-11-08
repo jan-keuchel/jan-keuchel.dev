@@ -1,7 +1,7 @@
 ---
 title: Fuzzing Concurrently in Go
 desc: Projektarbeit an der HKA
-published: 2025-09-23
+date: 2025-09-23
 language: de
 ---
 # Dokumentation: Fuzzing concurrent Go

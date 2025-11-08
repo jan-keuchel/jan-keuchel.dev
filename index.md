@@ -10,7 +10,7 @@ I'm a Computer Science student currently living in Karlsruhe.
 {: .mb-1 }
 
 You somehow managed to land on my personal webpage.
-On here, I publish blogs and lecture notes, showcase projects, and share thoughts from books I've read.
+On here, I publish blogs, share lecture notes and showcase some of my projects.
 {: .mb-05 }
 
 The different sections can be found via the navigation bar above.

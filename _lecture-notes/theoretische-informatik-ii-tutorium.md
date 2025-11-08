@@ -1,5 +1,5 @@
 ---
-title: Embedded Software
+title: Theoretische Informatik II Tutorium
 desc: [description of the file]
 date: 2025-11-07
 logo: /assets/images/HKA.png
