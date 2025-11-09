@@ -2,7 +2,9 @@
 title: Contact
 layout: default
 ---
-You can always send me encrypted mails using my public PGP key:
+<p class="text-small">
+  You can always send me encrypted mails using my public PGP key:
+</p>
 
 <pre id="pgp-key">
 -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -20,9 +22,22 @@ V+8vKAD/a9EWntHObmYmabkm6gh25Ylpgi9WPAXVtcyEH+eDYAQ=
 -----END PGP PUBLIC KEY BLOCK-----
 </pre>
 
-Alternatively you can download it from [keys.openpgp.org](https://keys.openpgp.org/search?q=jan%40keuchel.dev)
-{: .mb-05 }
+<p class="text-small mt-1">
+  <a href="/assets/pgp/keucheldev.asc" download>Download PGP key as .asc file</a>
+</p>
+
+**Fingerprint:** `5089 A126 7368 56F7 A019 A0EE 18D3 12BB 5FA8 5A8C`
+{: .text-small .mt-05 }
+
+<p class="text-small mt-05">
+  Alternatively, download it from:
+  <a href="https://keys.openpgp.org/search?q=jan%40keuchel.dev" target="_blank" rel="noopener">
+    keys.openpgp.org
+  </a>
+</p>
 
 **Email:** [jan@keuchel.dev](mailto:jan@keuchel.dev)
+{: .text-small .mt-2 }
 
-**Fingerprint:** `5089 A126 7368 56F7 A019  A0EE 18D3 12BB 5FA8 5A8C`
+I usually reply within 48 hours.
+{: .text-secondary .mt-2 }
