@@ -5,3 +5,4 @@ Legal_gen
 vendor
 .bundle
 others
+\.deploy-config
