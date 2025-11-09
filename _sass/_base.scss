@@ -11,7 +11,8 @@
   --col-border:                 color-mix(in srgb, var(--col-background-nav) 92%, white);
   --col-link:                 #999EFF;
 
-  --pgp-bg:                   #3B4252;
+  // --pgp-bg:                   #3B4252;
+  --pgp-bg:                   #181818;
 
   --col-highlight-red:        #F2545B;
   --col-highlight-green:      #4DE6AC;
@@ -21,9 +22,9 @@
 }
 
 /* Make inline SVGs respond to dark mode */
-[data-theme="dark"] .full-width-img svg,
-[data-theme="dark"] .full-width-img img,
-[data-theme="dark"] .full-width-img object {
+[data-theme="dark"] .img-theme-toggle svg,
+[data-theme="dark"] .img-theme-toggle img,
+[data-theme="dark"] .img-theme-toggle object {
   filter: invert(1) hue-rotate(180deg);
 }
 

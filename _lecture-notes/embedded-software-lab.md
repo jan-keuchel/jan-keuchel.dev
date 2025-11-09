@@ -57,7 +57,7 @@ Will $S_i$ den Wert $b=0$ senden, so sendet er das inverse von $c_i$ (Nullen und
 Im Labor wird die Annahme gemacht, dass jeder der Satelliten seinen gesendeten Chip $b \in \\{0,1\\}$ periodisch sendet, also davor und danach das gleiche $b$ gesendet hat bzw. danach senden wird.
 Das Summensignal $\mathcal{S}$ ist die Summe aus mehreren, übereinander gelagerten und verschobenen Chipsequenzen:
 
-<div class="full-width-img">
+<div class="full-width-img img-theme-toggle">
     {% include lecture_data/embedded-software-lab/sumsignal_tex %}
 </div>
 
@@ -257,7 +257,7 @@ C++ -O3: generation=0.079 ms, translation=0.052 ms, correlational product=3.924 
 
 Der Plot:
 
-<div class="full-width-img">
+<div class="full-width-img img-theme-toggle">
     <img src="{{ '/assets/images/decoder_timing_comparison.png' | relative_url }}"
          alt="Time comparison plot">
 </div>

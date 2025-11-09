@@ -15,14 +15,6 @@ code {
   font-size: 0.95em;
 }
 
-html[data-theme='dark'] .highlight .s { color: #a3be8c; } /* strings */
-html[data-theme='light'] .highlight .s { color: #008000; }
-
-/* Light theme */
-html[data-theme='light'] .highlight {
-  background-color: #eeeeee;
-  color: #333;
-}
 html[data-theme='light'] .highlight .lineno {
   color: #999;
 }
@@ -31,15 +23,6 @@ html[data-theme='light'] code {
   color: #222;
 }
 
-/* Dark theme */
-html[data-theme='dark'] .highlight {
-  background-color: #3B4252;
-  color: #d8dee9;
-}
 html[data-theme='dark'] .highlight .lineno {
   color: #88c0d0;
-}
-html[data-theme='dark'] code {
-  background-color: #3b4252;
-  color: #eceff4;
 }

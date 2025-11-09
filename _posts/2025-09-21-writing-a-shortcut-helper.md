@@ -270,7 +270,11 @@ fi
 {% highlight bash linenos %}
 {% include post_data/2025-09-21-writing-a-shortcut-helper/snippet-10 %}
 {% endhighlight %}
-![Shortcut helper showcase](/assets/images/shortcut_helper_showcase.gif)
+
+<div class="full-width-img">
+    <img src="{{ '/assets/images/shortcut_helper_showcase.gif' | relative_url }}"
+         alt="Time comparison plot">
+</div>
 
 ## Designing your own script for you specific needs
 
