@@ -2,6 +2,7 @@
 layout: default
 ---
 <h1>{{ page.title }}</h1>
+<p>
 {% if page.ongoing == true %}
     {% if page.language == "en" %}
         <time class="card-md-date">last update: {{ page.date | date: "%d.%m.%Y" }}</time>
@@ -11,5 +12,6 @@ layout: default
 {% else %}
     <time class="card-md-date">{{ page.date | date: "%d.%m.%Y" }}</time>
 {% endif %}
+</p>
 {% include toc.html %}
 {{ content }}
