@@ -18,8 +18,9 @@ Work in progress.
 - [x] Issues
     - [x] Fix font issue in articles in ul listing
 - [x] Add Github Link inside a project
-- [ ] Setup Email
+- [x] Setup Email
 - [x] Questions
     - [x] Is it possible to write entire page in tex instead of md?
         - Doesn't work
 - [x] Write official pages
+- [ ] Finishing touches
