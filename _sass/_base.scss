@@ -11,6 +11,8 @@
   --col-border:                 color-mix(in srgb, var(--col-background-nav) 92%, white);
   --col-link:                 #999EFF;
 
+  --pgp-bg:                   #3B4252;
+
   --col-highlight-red:        #F2545B;
   --col-highlight-green:      #4DE6AC;
   --col-highlight-blue:       #64B5F6;
@@ -37,6 +39,8 @@
   --col-background-content:   color-mix(in srgb, var(--col-background-nav) 38%, white);
   --col-border:               color-mix(in srgb, var(--col-background-nav) 95%, black);
   --col-link:               #3B82F6;
+
+  --pgp-bg:                 #EEEEEE;
     
   --col-highlight-red:      #EF4444;
   --col-highlight-green:    #10B981;
@@ -351,13 +355,20 @@ footer {
 }
 
 
+// -----------------------------
+// --------- Contact -----------
+// -----------------------------
+#pgp-key {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0rem;
+  padding: 1rem;
+  background-color: var(--pgp-bg);
+  border-radius: 4px;
 
-
-
-
-
-
-
+  /* Responsive font scaling */
+  font-size: clamp(0.65rem, 0.8rem + 0.5vw, 1.1rem);
+}
 
 
 

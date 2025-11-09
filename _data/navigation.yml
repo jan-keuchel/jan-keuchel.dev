@@ -8,3 +8,5 @@
   link: /projects.html
 # - name: Reading
   # link: /books.html
+- name: Contact
+  link: /contact.html
