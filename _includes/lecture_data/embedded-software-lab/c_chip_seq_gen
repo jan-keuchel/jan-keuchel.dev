@@ -1,12 +1,12 @@
 {% raw %}
-short *generate_chip_sequence(int reg_sum[2]) {
-    short a[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    short b[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    short *code = (short *)calloc(SEQ_LEN, sizeof(short));
+int *generate_chip_sequence(int reg_sum[2]) {
+    int a[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    int b[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    int *code = (int *)calloc(SEQ_LEN, sizeof(int));
 
-    short a_new_lmb;
-    short b_new_lmb;
-    short code_bit;
+    int a_new_lmb;
+    int b_new_lmb;
+    int code_bit;
     
     for (int i = 0; i < SEQ_LEN; i++) {
         // Update code

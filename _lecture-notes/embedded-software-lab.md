@@ -72,7 +72,7 @@ Falls ein solcher Ausschlag vorliegt, hat der Satellit entweder ein Eins-Bit (po
 ---
 
 ## C++
-### Generierung von Chipsequenzen
+### Generierung der Chipsequenzen
 Um das Summensignal dekodieren zu können, benötigt man die Chipsequenzen.
 Die Verknüpfungskonfigurationen der Register waren auf dem Übungsblatt gegeben.
 
@@ -92,6 +92,11 @@ und dann in Vektoren über `-1, 1` übersetzt:
 {% include lecture_data/embedded-software-lab/cpp_translation_to_vec %}
 {% endhighlight %}
 
+Die generierte Chipsequenz für den Satelliten $1$ sieht zum Beispiel so aus:
+{% highlight cpp %}
+{% include lecture_data/embedded-software-lab/chip_seq_sat_1 %}
+{% endhighlight %}
+
 ### Dekodierung
 
 
@@ -102,6 +107,9 @@ Wird ein "Ausschlag" gefunden, kann dieser ausgegeben werden:
 {% highlight cpp linenos %}
 {% include lecture_data/embedded-software-lab/cpp_cp %}
 {% endhighlight %}
+
+{: .highlight-block .highlight-hint}
+Dass die satelliten das gleiche Signal hintereinander senden wurde dadurch realisiert, dass in Zeile `19` ein Modulo-Operator (`%`) verwendet wurde, um die Daten wieder von vorne zu durchlaufen.
 
 Somit entsteht z.B. die folgende Ausgabe: 
 
@@ -119,10 +127,10 @@ Das Programm in `C` zu übersetzen ist nicht sonderlich kompliziert.
 Es fallen ausschließlich einige Datenstrukturen weg.
 Diese können aber leicht durch normale Arrays (pointer) ersetzt werden.
 
-### Generierung von Chipsequenzen
+### Generierung der Chipsequenzen
 
 Die Funktion zur Generierung von Chipsequenzen ändert sich nicht stark ab.
-Anstelle der `std::bitset` Objekte werden nun `short` Arrays genutzt.
+Anstelle der `std::bitset` Objekte werden nun `int` Arrays genutzt.
 Eine Änderung ist, dass somit keine Bitoperationen -- und somit das Rechtsschieben -- mehr möglich sind.
 Somit wird ebenfalls die Funktion `sr` (shift right) benötigt:
 
@@ -138,18 +146,21 @@ Die Funktion `generate_chip_sequence` sieht also wie folgt aus:
 
 
 {: .highlight-block .highlight-hint}
-Bitte nicht das Deallokieren des in Zeile `4` allokierten Speichers vergessen...
+Bitte nicht vergessen, den in Zeile `4` allokierten Speichers später wieder zu deallokieren...
 
-Die Schleifen für den Aufruf von `generate_chip_sequence`, sowie die Übersetzung in Vektoren über `-1, 1` ändern sich nicht bemerkenswert ab.
+Die Schleifen für den Aufruf von `generate_chip_sequence`, sowie die Übersetzung in Vektoren über `-1, 1` ändern sich nicht bemerkenswert ab und werden hier nicht zusätzlich erwähnt.
 
 ### Dekodierung
 
-Auch an der Berechnung des Kreuzkorrelationsproduktes ergeben sich nicht viele Änderungen.
+Auch an der Berechnung der Kreuzkorrelationsprodukte ergeben sich nicht viele Änderungen.
 Hier die Schleife:
 
 {% highlight c linenos %}
 {% include lecture_data/embedded-software-lab/c_cp %}
 {% endhighlight %}
+
+{: .highlight-block .highlight-hint}
+Dass die satelliten das gleiche Signal hintereinander senden wurde hier erneut dadurch realisiert, dass in Zeile `14` ein Modulo-Operator (`%`) verwendet wurde, um die Daten wieder von vorne zu durchlaufen.
 
 Die Ausgabe ist glücklicherweise identisch:
 

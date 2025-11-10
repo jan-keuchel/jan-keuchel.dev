@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
         for (int d = 0; d < SEQ_LEN; d++) {
             correlation_product = 0;
             // ... and calculate the CP.
-            for (size_t j = 0; j < SEQ_LEN; j++) {
+            for (int j = 0; j < SEQ_LEN; j++) {
                 correlation_product += input[j] * chip_vectors[i][(j+d) % SEQ_LEN];
             }
 
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
         }
 
         if (bit != -1) {
-            printf("Satellite %2zu has sent bit %d (delta = %d)\n", i+1, bit, delta);
+            printf("Satellite %2d has sent bit %d (delta = %d)\n", (int)(i+1), bit, delta);
         }
     }
 
