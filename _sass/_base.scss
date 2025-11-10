@@ -16,6 +16,7 @@
   --col-highlight-red:        #F2545B;
   --col-highlight-green:      #4DE6AC;
   --col-highlight-blue:       #64B5F6;
+  --col-highlight-important:  #FF8F33;
 
   --shadow-intensity: 0.12;
 }
@@ -45,6 +46,7 @@
   --col-highlight-red:      #EF4444;
   --col-highlight-green:    #10B981;
   --col-highlight-blue:     #0EA5E9;
+  --col-highlight-important:  #FF8F33;
 
   --shadow-intensity: 0.05;
 }
@@ -408,6 +410,11 @@ footer {
 .highlight-note {
   background: color-mix(in srgb, var(--col-background-content) 90%, var(--col-highlight-blue));
   border-left: 6px solid color-mix(in srgb, var(--col-background-content) 60%, var(--col-highlight-blue));
+}
+
+.highlight-important {
+  background: color-mix(in srgb, var(--col-background-content) 90%, var(--col-highlight-important));
+  border-left: 6px solid color-mix(in srgb, var(--col-background-content) 60%, var(--col-highlight-important));
 }
 
 // -----------------------------

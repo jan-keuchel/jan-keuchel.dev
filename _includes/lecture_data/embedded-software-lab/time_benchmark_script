@@ -14,7 +14,7 @@ compilers = {
     "C++": "g++"
 }
 optimization_levels = ["-O0", "-O1", "-O2", "-O3"]
-runs_per_config = 10
+runs_per_config = 50
 input_file = "input"
 
 # Regex patterns to extract times
@@ -66,9 +66,9 @@ for lang, src in source_files.items():
         results[lang]["cp"].append(statistics.mean(cp_times))
         results[lang]["total"].append(statistics.mean(total_times))
 
-        print(f"{lang} {opt}: generation={results[lang]['generation'][-1]:.3f} ms, "
-            f"translation={results[lang]['translation'][-1]:.3f} ms, "
-            f"correlational product={results[lang]['cp'][-1]:.3f} ms, "
+        print(f"{lang} {opt}: gen={results[lang]['generation'][-1]:.3f} ms, "
+            f"translate={results[lang]['translation'][-1]:.3f} ms, "
+            f"cp={results[lang]['cp'][-1]:.3f} ms, "
             f"total={results[lang]['total'][-1]:.3f} ms")
 
 # ---- Plot results ----
@@ -90,5 +90,5 @@ plt.tight_layout()
 plt.savefig("decoder_timing_comparison.png")
 plt.close()
 
-# print("\nResults saved to 'decoder_timing_comparison.png'")
+print("\nResults saved to 'decoder_timing_comparison.png'")
 {% endraw %}

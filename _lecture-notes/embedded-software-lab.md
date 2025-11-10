@@ -150,7 +150,7 @@ Bitte nicht vergessen, den in Zeile `4` allokierten Speichers später wieder zu 
 
 Die Schleifen für den Aufruf von `generate_chip_sequence`, sowie die Übersetzung in Vektoren über `-1, 1` ändern sich nicht bemerkenswert ab und werden hier nicht zusätzlich erwähnt.
 
-### Dekodierung
+### Berechnung der gesendeten Bits
 
 Auch an der Berechnung der Kreuzkorrelationsprodukte ergeben sich nicht viele Änderungen.
 Hier die Schleife:
@@ -198,29 +198,28 @@ cpu_time_used = ((double) (start_translation - start_generation)) / CLOCKS_PER_S
 printf("Generation of sequence numbers took: %d microseconds.\n", (int) (cpu_time_used * 1000000));
 {% endhighlight %}
 
-Hieraus ergibt sich ...
+{: .highlight-block .highlight-note}
+Damit das Ergebnis weniger stark schwankt, wird ein Skript geschrieben, welches die Programme mehrfach -- in diesem Fall `50` Mal -- ausführt und den Mittelwert für die jeweiligen Intervalle ausgibt.
 
-**...für `C`:**
+Somit ergibt sich:
 {% highlight bash linenos %}
-./c_decoder input
-Generation of sequence numbers took: 2583 microseconds.
-Translation of sequence numbers took: 158 microseconds.
-cp calculation took: 47172 microseconds.
-Total: 49913 microseconds.
+C  : gen=2.572 ms, translate=0.143 ms, cp=56.900 ms,  total=59.614 ms
+C++: gen=3.396 ms, translate=0.411 ms, cp=126.806 ms, total=130.615 ms
 {% endhighlight %}
 
-**...für `C++`:**
-{% highlight bash linenos %}
-./p_decoder input
-Generation of sequence numbers took: 5490 microseconds.
-Translation of sequence numbers took: 639 microseconds.
-cp calculation took: 202245 microseconds.
-Total: 208375 microseconds.
+{: .highlight-block .highlight-important }
+In der Gesamtzeit ist `C` also um einen Faktor von **2.19** schneller als `C++`.
+
+### Optimierung durch Compiler-Flags
+
+#### Skript zur automatisierung des Vergleichs
+Da es keinen Spaß macht, dies manuell zu tun -- bzw. es mehr Spaß macht, ein Skript zu schreiben, welches dieses automatisiert tut und die Ergebnisse plottet -- wird ein Python Skript geschrieben, welches einem die Arbeit abnimmt:
+
+{% highlight python linenos %}
+{% include lecture_data/embedded-software-lab/time_benchmark_script %}
 {% endhighlight %}
 
-`C` ist in diesem Fall also insgesamt ca. 4 mal so Schnell wie `C++`.
-
-### Optimierung
+### Code Optimierung
 Die Operation, die am aufwendigsten ist, ist der Modulo-Operator (`%`) in der Schleife, welche das Korrelationsprodukt berechnet.
 Es gilt also, diesen Operator wenn möglich zu eliminieren.
 In diesem Fall dient er dazu, dass der Index, wenn dieser am Ende des Arrays ankommt, wieder an den Anfang gesetzt wird, sodass kein `IndexOutOfBounds` auftritt.
@@ -259,46 +258,10 @@ cp calculation took: 187002 microseconds.
 Total: 193054 microseconds.
 {% endhighlight %}
 
-### Compiler Flags
+### Optimierung durch Compiler-Flags II
 Beim Compilieren der Programme kann eine Optimierung verwendet werden.
 Diese reicht von `-O0` (default Wert) bis `-O3`.
 
 Es werden nun also beide Programme mit allen Optimierungsleveln compiliert und die Zeitwerte verglichen.
 
-#### Skript zur automatisierung des Vergleichs
-Da es keinen Spaß macht, dies manuell zu tun -- bzw. es mehr Spaß macht, ein Skript zu schreiben, welches dieses automatisiert tut und die ergebnisse plottet -- wird ein Python Skript geschrieben, welches einem die Arbeit abnimmt:
-
-{% highlight python linenos %}
-{% include lecture_data/embedded-software-lab/time_benchmark_script %}
-{% endhighlight %}
-
-### Finaler Vergleich
-
-Die Ausgabe auf der Kommandozeile:
-
-{% highlight bash linenos %}
-python time_benchmark.py
-
---- C ---
-C -O0: generation=2.895 ms, translation=0.159 ms, correlational product=46.708 ms, total=49.761 ms
-C -O1: generation=0.275 ms, translation=0.014 ms, correlational product=18.454 ms, total=18.743 ms
-C -O2: generation=0.328 ms, translation=0.016 ms, correlational product=7.446 ms, total=7.791 ms
-C -O3: generation=0.279 ms, translation=0.004 ms, correlational product=7.384 ms, total=7.666 ms
-
---- C++ ---
-C++ -O0: generation=4.771 ms, translation=0.587 ms, correlational product=162.087 ms, total=167.445 ms
-C++ -O1: generation=0.139 ms, translation=0.047 ms, correlational product=6.108 ms, total=6.295 ms
-C++ -O2: generation=0.085 ms, translation=0.060 ms, correlational product=4.000 ms, total=4.146 ms
-C++ -O3: generation=0.079 ms, translation=0.052 ms, correlational product=3.924 ms, total=4.055 ms
-{% endhighlight %}
-
-Der Plot:
-
-<div class="full-width-img">
-    <img src="{{ '/assets/images/decoder_timing_comparison.png' | relative_url }}"
-         alt="Time comparison plot">
-</div>
-
-Hierbei stellt man interessanter Weise fest: 
-
-**`C++` ist in diesem Fall schneller als `C`**, sobald man die Optimierungsflags des Compilers verwendet!
+### Ergebnis
