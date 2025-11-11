@@ -37,7 +37,7 @@ Will $S_i$ den Wert $b=0$ senden, so sendet er das inverse von $c_i$ (Nullen und
 Das Summensignal entsteht dadurch, dass mehrere Satelliten parallel und verschoben zueinander (asynchron) Bits -- also ihre Chipsequenzen -- senden.
 Es ist also die Summe mehrerer, verschobener Chipsequenzen:
 
-<div class="full-width-img img-theme-toggle">
+<div class="img-100 img-theme-toggle">
     {% include lecture_data/embedded-software-lab/sumsignal_tex %}
 </div>
 
@@ -175,11 +175,9 @@ Satellite 21 has sent bit 1 (delta = 126)
 
 ## Vergleich
 Nun werden die beiden Programme bezüglich des Zeitaufwandes verglichen.
-Der Vergleich wird für folgende Intervalle ausgeführt:
-- Generierung der Chipsequenzen
-- Übersetzung der Chipsequenzen (von `0, 1` zu `-1, 1`)
-- Berechnung der gesendeten Bits
-- Gesamtzeit
+Die Chipgenerierung und Übersetzung sind nicht von Interesse.
+Was relevant ist, ist die Berechnung der Korrelationsprodukte.
+Folglich wird die Zeit für diese Berechnung ermittelnt.
 
 ### Zeitmessung
 Im Falle von `C++` gibt `std::chrono::high_resolution_clock::now()` einen Zeitstemptel zurück.
@@ -199,16 +197,16 @@ printf("Generation of sequence numbers took: %d microseconds.\n", (int) (cpu_tim
 {% endhighlight %}
 
 {: .highlight-block .highlight-note}
-Damit das Ergebnis weniger stark schwankt, wird ein Skript geschrieben, welches die Programme mehrfach -- in diesem Fall `50` Mal -- ausführt und den Mittelwert für die jeweiligen Intervalle ausgibt.
+Damit das Ergebnis weniger stark schwankt, werden die Programme mehrfach -- in diesem Fall `100` Mal -- ausführt und der Mittelwert gebildet.
 
-Somit ergibt sich:
-{% highlight bash linenos %}
-C  : gen=1.809 ms, translate=0.099 ms, cp=39.351 ms,  total=41.260 ms
-C++: gen=3.442 ms, translate=0.411 ms, cp=126.900 ms, total=130.754 ms
-{% endhighlight %}
+<div class="highlight-block highlight-important" markdown="1">
+Die mittlere Ausführungszeit für die Berechnung der Korrelationsprodukte beträgt:
+- **`C`:**  $\overline t = 61.692 ms$
+- **`C++`:**  $\overline t = 184.398 ms$
 
-{: .highlight-block .highlight-important }
-In der Gesamtzeit ist `C` also um einen Faktor von **3.17** schneller als `C++`.
+Die `C`-Implementierung ist damit um einen Faktor von **2.989** schneller als `C++`-Version.
+</div>
+
 
 ### Optimierung durch Compiler-Flags
 
@@ -221,43 +219,12 @@ Bei den oben gelisteten Ergebnissen handelt es sich also um nicht optimierte Pro
 
 Die Frage ist jetzt also: wie verhalten sich die Laufzeiten des `C`- bzw. `C++`-Progamms über die unterschiedlichen Optimierungsstufen hinweg.
 
-Da die benötigte Zeit von Durchlauf zu Durchlauf stark variieren kann, ist es besser, nicht eine Messung pro Programm pro Optimierungsstufe durchzuführen, sondern den Mittelwert mehrerer Ausführungen zu bilden.
-
-#### Skript zur automatisierung des Vergleichs
-Da es keinen Spaß macht dies manuell zu tun, wird ein Python Skript geschrieben, welches ...
-
-- beide Varianten des Programms (`C` und `C++`) in den unterschiedlichen Optimierungsstufen kompiliert
-- die Ausgaben bezüglich der Laufzeit der Programme speichert
-- die Mittelwerte berechnet
-- das Ergebnis plottet
-
-{: .text-small }
-**Das Skript:**
-
-{% highlight python linenos %}
-{% include lecture_data/embedded-software-lab/time_benchmark_script %}
-{% endhighlight %}
-
 #### Zwischenergebnisse
 
-Die Ausgabe des Skripts ist wie folgt:
+Dazu werden beide Programme in den genannten Optimierungsstufen kompiliert, und deren Zeiten in einer Datei notiert.
 
-{% highlight python linenos %}
-{% include lecture_data/embedded-software-lab/comp_1 %}
-{% endhighlight %}
-
-Die jeweils ersten Zeilen sind bereits von vorher bekannt.
-Die Faktoren bezüglich der Gesamtzeiten für die Optimierungsstufen sind: 
-- `-O0:` **3.169**
-- `-O1:` **1.089**
-- `-O2:` **0.977**
-- `-O3:` **1.005**
-
-Der erstellte Plot:
-
-<div class="full-width-img img-theme-toggle">
-    <img src="{{ '/assets/images/decoder_timing_comp_1.png' | relative_url }}"
-         alt="Time comparison plot">
+<div class="img-80 img-theme-toggle">
+    {% include lecture_data/embedded-software-lab/interm_res_tex %}
 </div>
 
 {: .highlight-block .highlight-important }
@@ -282,7 +249,7 @@ Verschiebt man nicht mehr die Chip-Sequenzen um ein $\delta$, sondern das Summen
 
 Bisher wurden die Chips der Chipsequenzen folgendermaßen miteinander verknüpft:
 
-<div class="full-width-img img-theme-toggle">
+<div class="img-100 img-theme-toggle">
     {% include lecture_data/embedded-software-lab/offset_mod_tex %}
 </div>
 
@@ -292,7 +259,7 @@ Die Beschriftungen der Form $\mathcal{S}[j]$ und $c_i[k]$ zeigen an, wo sich die
 
 Anstelle dessen werden sie nun, um den Modulo-Operator zu eliminieren wie folgt miteinander verknüpft:
 
-<div class="full-width-img img-theme-toggle">
+<div class="img-100 img-theme-toggle">
     {% include lecture_data/embedded-software-lab/offset_2S_tex %}
 </div>
 
@@ -318,32 +285,37 @@ Und hier die optimierte Schleife in `C`:
 
 Die Änderungen sind analog zu denjenigen in `C++`.
 
-### Optimierung durch Compiler-Flags II
+### Optimierung durch Compiler-Flags II: Ergebnisse
 
-
-#### Zwischenergebnisse
-
-Die Ausgabe des Skripts ist wie folgt:
-
-{% highlight python linenos %}
-{% include lecture_data/embedded-software-lab/comp_2 %}
-{% endhighlight %}
-
-Die jeweils ersten Zeilen sind bereits von vorher bekannt.
-Die Faktoren bezüglich der Gesamtzeiten für die Optimierungsstufen sind: 
-- `-O0:` **2.614**
-- `-O1:` **0.673**
-- `-O2:` **0.678**
-- `-O3:` **0.684**
-
-Der erstellte Plot:
-
-<div class="full-width-img img-theme-toggle">
-    <img src="{{ '/assets/images/decoder_timing_comp_2.png' | relative_url }}"
-         alt="Time comparison plot">
+<div class="img-80 img-theme-toggle">
+    {% include lecture_data/embedded-software-lab/results_table_opt_tex %}
 </div>
 
 {: .highlight-block .highlight-important }
-**Fazit:** Ohne Compileroptimierung ist `C` deutlich schneller als `C++` (Faktor **2.614**). Sobald allerdings die Compileroptimierung eingeschaltet wird (ab `-O1`) ist **`C++` schneller als `C`** um einen Faktor von **1.474**.
+**Fazit:** Die Ergebnisse unterscheiden sich im Verhältlnis nicht sonderlich von denjenigen ohne Code-Optimierung: `C` ist deutlich schneller als `C++`, solange man keine Compiler Optimierung nutzt.
+Sobald diese genutzt wird, sind `C` und `C++` quasi gleich schnell.
 
-### Auswertung
+Um welchen Faktor haben siche die Programme durch die Code-Optimierung bei den jeweiligen Compiler Optimierungsstufen verbessert?
+
+Im Falle von `C` hat sich folgendes egeben:
+
+<div class="img-80 img-theme-toggle">
+    {% include lecture_data/embedded-software-lab/results_C_improv_tex %}
+</div>
+
+Bei `C++` sah es wie folgt aus:
+
+<div class="img-80 img-theme-toggle">
+    {% include lecture_data/embedded-software-lab/results_Cpp_improv_tex %}
+</div>
+
+{: .highlight-block .highlight-important }
+**Fazit:** Die Code-Optimierung bringt also bei `C++` eine Verbesserung um $15\%$ und bei `C` um $40\%$.
+Dies ist bereits substantiell.
+Interessant ist allerdings, dass die Verbeserung erst richtig zu tragen kommt, wenn dazu noch eine Compiler-Optimierung verwendet wird. Hierdurch Werden bei `C++` verbesserungen um $600\%$ und bei `C` $590\%$, also knapp darunter erzielt.
+
+## Anhang
+
+<p class="text-small mt-1">
+<a href="/data/C_Cpp_Comparison.csv">Download .csv file</a>
+</p>
