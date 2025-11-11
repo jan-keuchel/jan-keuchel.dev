@@ -4,7 +4,6 @@ int delta = 0;
 int bit = 0;
 
 for (int i = 0; i < NUM_SAT; i++) {
-
     delta = -1;
     bit = -1;
 
@@ -28,6 +27,5 @@ for (int i = 0; i < NUM_SAT; i++) {
     if (bit != -1) {
         printf("Satellite %2d has sent bit %d (delta = %d)\n", i+1, bit, delta);
     }
-
 }
 {% endraw %}

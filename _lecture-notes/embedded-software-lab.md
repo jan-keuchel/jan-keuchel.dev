@@ -160,7 +160,7 @@ Hier die Schleife:
 {% endhighlight %}
 
 {: .highlight-block .highlight-hint}
-Dass die satelliten das gleiche Signal hintereinander senden wurde hier erneut dadurch realisiert, dass in Zeile `14` ein Modulo-Operator (`%`) verwendet wurde, um die Daten wieder von vorne zu durchlaufen.
+Dass die satelliten das gleiche Signal hintereinander senden wurde hier erneut dadurch realisiert, dass in Zeile `13` ein Modulo-Operator (`%`) verwendet wurde, um die Daten wieder von vorne zu durchlaufen.
 
 Die Ausgabe ist glücklicherweise identisch:
 
@@ -248,10 +248,10 @@ Die Ausgabe des Skripts ist wie folgt:
 
 Die jeweils ersten Zeilen sind bereits von vorher bekannt.
 Die Faktoren bezüglich der Gesamtzeiten für die Optimierungsstufen sind: 
-- `-O0:` **3.17**
-- `-O1:` **1.09**
-- `-O2:` **0.98**
-- `-O3:` **1.01**
+- `-O0:` **3.169**
+- `-O1:` **1.089**
+- `-O2:` **0.977**
+- `-O3:` **1.005**
 
 Der erstellte Plot:
 
@@ -264,6 +264,7 @@ Der erstellte Plot:
 **Fazit:** Ab der Optimierungsstufe `-O1` ist der Unterschied zwischen `C` und `C++` vernachlässigbar.
 
 ### Code Optimierung
+#### Kurze Theorie
 Die Gesamtzeit ist -- wie zu erwarten war -- fast ausschließlich durch die Berechnung der Korrelationsprodukte bestimmt.
 Folglich wird sich in der Code-Optimierung nur auf diesen Abschnitt bezogen.
 
@@ -286,12 +287,63 @@ Bisher wurden die Chips der Chipsequenzen folgendermaßen miteinander verknüpft
 </div>
 
 {: .highlight-block .highlight-note}
-Hier ist ein Summensignal $\mathcal{S}$ und eine um $\delta$ rotierte Chipsequenz $c_i$ der Länge $20$.
+Hier ist ein Summensignal $\mathcal{S}$ und eine um $\delta$ rotierte Chipsequenz $c_i$ der Länge $10$.
 Die Beschriftungen der Form $\mathcal{S}[j]$ und $c_i[k]$ zeigen an, wo sich die jeweiligen Werte befinden, damit man sieht, wie sich die Rotation um $\delta$ auswirkt.
 
+Anstelle dessen werden sie nun, um den Modulo-Operator zu eliminieren wie folgt miteinander verknüpft:
 
+<div class="full-width-img img-theme-toggle">
+    {% include lecture_data/embedded-software-lab/offset_2S_tex %}
+</div>
 
+{: .highlight-block .highlight-note}
+Achtet man auf die Indeices, die miteinander verknüpft werden, so stellt man fest, dass beide Varianten die gleichen Indices verknüpfen und somit das gleiche berechnen.
+
+#### Optimierte Implementierung
+Hier die optimierte Schleife in `C++`:
+
+{% highlight cpp linenos %}
+{% include lecture_data/embedded-software-lab/cpp_optimized_cp %}
+{% endhighlight %}
+
+Hierbei ändern sich zwei Dinge: 
+- der Modulo-Operator wurde entfernt indem der Offset $\delta$ nun auf das Summensignal gegeben wird. 
+- Dadurch, dass der Offset nun auf das Summensignal und nicht auf die Chipsequenz gerechnet wird, muss beim Speichern des Offsets nicht `d`, sondern `SEQ_LEN - d` gespeichert werden.
+
+Und hier die optimierte Schleife in `C`:
+
+{% highlight cpp linenos %}
+{% include lecture_data/embedded-software-lab/c_optimized_cp %}
+{% endhighlight %}
+
+Die Änderungen sind analog zu denjenigen in `C++`.
 
 ### Optimierung durch Compiler-Flags II
 
-### Ergebnis
+
+#### Zwischenergebnisse
+
+Die Ausgabe des Skripts ist wie folgt:
+
+{% highlight python linenos %}
+{% include lecture_data/embedded-software-lab/comp_2 %}
+{% endhighlight %}
+
+Die jeweils ersten Zeilen sind bereits von vorher bekannt.
+Die Faktoren bezüglich der Gesamtzeiten für die Optimierungsstufen sind: 
+- `-O0:` **2.614**
+- `-O1:` **0.673**
+- `-O2:` **0.678**
+- `-O3:` **0.684**
+
+Der erstellte Plot:
+
+<div class="full-width-img img-theme-toggle">
+    <img src="{{ '/assets/images/decoder_timing_comp_2.png' | relative_url }}"
+         alt="Time comparison plot">
+</div>
+
+{: .highlight-block .highlight-important }
+**Fazit:** Ohne Compileroptimierung ist `C` deutlich schneller als `C++` (Faktor **2.614**). Sobald allerdings die Compileroptimierung eingeschaltet wird (ab `-O1`) ist **`C++` schneller als `C`** um einen Faktor von **1.474**.
+
+### Auswertung

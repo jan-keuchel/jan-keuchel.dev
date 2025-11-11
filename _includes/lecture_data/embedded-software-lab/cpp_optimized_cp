@@ -1,0 +1,32 @@
+{% raw %}
+int correlation_product = 0;
+int delta = 0;
+int bit = 0;
+// For each satellite...
+for (size_t i = 0; i < chip_vectors.size(); i++) {
+
+    delta = -1;
+    bit = -1;
+
+    // Test every offset delta...
+    for (int d = 0; d < SEQ_LEN; d++) {
+        correlation_product = 0;
+        // ... and calculate the CP.
+        for (int j = 0; j < SEQ_LEN; j++) {
+            correlation_product += input[j+d] * chip_vectors[i][j];
+        }
+
+        if (correlation_product > 800) {
+            bit = 1;
+            delta = SEQ_LEN - d;
+        } else if (correlation_product < -800) {
+            bit = 0;
+            delta = SEQ_LEN - d;
+        } 
+    }
+
+    if (bit != -1) {
+        printf("Satellite %2d has sent bit %d (delta = %d)\n", (int)(i+1), bit, delta);
+    }
+}
+{% endraw %}
