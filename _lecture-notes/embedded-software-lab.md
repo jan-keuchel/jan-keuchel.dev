@@ -48,7 +48,12 @@ Es ist also die Summe mehrerer, verschobener Chipsequenzen -- oder invertierter 
     {% include lecture_data/embedded-software-lab/sumsignal_tex %}
 </div>
 
-Im Labor wird die Annahme gemacht, dass jeder der Satelliten sein gesendetes Datenbit $b \in \\{0,1\\}$ periodisch sendet. In <a href="#sumsignal_tex">Abbildung 1</a> wüsste man also, wie man die fehlenden Chips im roten Bereich auszufüllen hätte: man fängt einfach wieder an, die jeweilige Chipsequenz von vorn zu lesen.
+{: .highlight-block .highlight-note }
+Die Satelliten $S_1$ bis $S_4$, senden jeweils ein Bit.
+Danach und davor werden weitere Bits gesendet.
+Über einem beliebigen Bereich -- hier rot markiert -- wird jetzt spaltenweise die Summe genommen, um zum Summensignal $\mathcal{S}$ zu gelangen.
+
+Im Labor wird die Annahme gemacht, dass jeder der Satelliten sein gesendetes Datenbit $b \in \\{0,1\\}$ periodisch sendet. In obiger Skizze wüsste man also, wie man die fehlenden Chips im roten Bereich auszufüllen hätte: man fängt einfach wieder an, die jeweilige Chipsequenz von vorne zu lesen.
 
 {: .highlight-block .highlight-hint }
 Alternativ kann man sich auch vorstellen, dass die Daten der Satelliten $S_1$ bis $S_4$ jeweils an sich selbst angehängt werden, wodurch der rote Bereich vollständig mit Chips ausgefüllt wird.
@@ -228,6 +233,9 @@ Es stellt sich die Frage: wie verhalten sich die Laufzeiten des `C`- bzw. `C++`-
 
 Dazu werden beide Programme in den genannten Optimierungsstufen kompiliert und deren Zeiten in einer Datei notiert.
 
+{% comment %} {: .highlight-block .highlight-warning} {% endcomment %}
+{% comment %} **TODO:** weird SVG fuckup... {% endcomment %}
+
 <div class="img-80 img-theme-toggle">
     {% include lecture_data/embedded-software-lab/interm_res_tex %}
 </div>
@@ -257,14 +265,18 @@ Bisher wurden die Chipsequenzen und das Summensignal folgendermaßen miteinander
     {% include lecture_data/embedded-software-lab/offset_mod_tex %}
 </div>
 
+{: .highlight-block .highlight-note }
+Das Summensignal $\mathcal{S}$ und eine um $\delta$ nach rechts rotierte Chipsequenz $c_i$ der Länge $10$.
+Verknüpft werden also $c_i[0]$ bis $c_i[6]$ mit $\mathcal{S}[3]$ bis $\mathcal{S}[9]$ und $c_i[7]$ bis $c_i[9]$ mit $\mathcal{S}[0]$ bis $\mathcal{S}[3]$.
+
 Anstelle dessen wird das Korrelationsprodukt nun wie folgt gebildet:
+
+{% comment %} {: .highlight-block .highlight-warning} {% endcomment %}
+{% comment %} **TODO:** weird SVG fuckup... and "Abbildung" missing {% endcomment %}
 
 <div class="img-100 img-theme-toggle">
     {% include lecture_data/embedded-software-lab/offset_2S_tex %}
 </div>
-
-{: .highlight-block .highlight-warning }
-**TODO:** Fix weird font issues on SVG...
 
 #### Optimierte Implementierung
 Hier die optimierte Schleife in `C++`:
@@ -291,9 +303,6 @@ Die Änderungen sind analog zu denjenigen in `C++`.
     {% include lecture_data/embedded-software-lab/results_table_opt_tex %}
 </div>
 
-{: .highlight-block .highlight-warning }
-**TODO:** Fix weird font issues. $o$ in fraction is large...
-
 {: .highlight-block .highlight-important }
 **Fazit:** Die Ergebnisse unterscheiden sich im Verhältlnis nicht sonderlich von denjenigen ohne Code-Optimierung: `C` ist deutlich schneller als `C++`, solange man keine Compiler Optimierung nutzt.
 Sobald diese genutzt wird, sind `C` und `C++` quasi gleich schnell.
@@ -307,17 +316,11 @@ Im Falle von `C` hat sich folgendes ergeben:
     {% include lecture_data/embedded-software-lab/results_C_improv_tex %}
 </div>
 
-{: .highlight-block .highlight-warning }
-**TODO:** Fix weird font issues. $o$ in fraction is large...
-
 Bei `C++` sieht es wie folgt aus:
 
 <div class="img-80 img-theme-toggle">
     {% include lecture_data/embedded-software-lab/results_Cpp_improv_tex %}
 </div>
-
-{: .highlight-block .highlight-warning }
-**TODO:** Fix weird font issues. $o$ in fraction is large...
 
 {: .highlight-block .highlight-important }
 **Fazit:** Die Code-Optimierung ohne Compiler-Optimierung bringt also bei `C++` eine Verbesserung um $15\%$ und bei `C` um $40\%$.
