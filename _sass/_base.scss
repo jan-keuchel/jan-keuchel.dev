@@ -349,6 +349,7 @@ footer {
 .card-metadata {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .card-md-flag {
@@ -360,6 +361,7 @@ footer {
   max-height: 1.25rem;
   width: auto;
   display: block;
+  margin-bottom: 5px;
 }
 
 
