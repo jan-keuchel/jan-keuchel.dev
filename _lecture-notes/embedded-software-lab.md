@@ -207,10 +207,12 @@ printf("Generation of sequence numbers took: %d microseconds.\n", (int) (cpu_tim
 Nun kann man die Programme beliebig oft ausführen und die Zeitdaten messen.
 
 <div class="highlight-block highlight-important" markdown="1">
+{: .text-small}
 Die mittlere Ausführungszeit für die Berechnung der Korrelationsprodukte beträgt:
 - **`C`:**  $\overline t = 61.692 ms$
 - **`C++`:**  $\overline t = 184.398 ms$
 
+{: .text-small}
 Die `C`-Implementierung ist damit um einen Faktor von **2.989** schneller als die `C++`-Version.
 </div>
 
