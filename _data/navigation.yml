@@ -2,6 +2,7 @@
   link: /
 - name: CV
   link: /assets/cv.pdf
+  target: _blank
 - name: Lecture Notes
   link: /lecture-notes.html
 - name: Projects
