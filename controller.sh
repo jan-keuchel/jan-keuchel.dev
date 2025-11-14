@@ -53,10 +53,10 @@ upload() {
     fi
 
     echo "Syncing files to VPS..."
-    rsync -avz --zc=zstd --delete -e "ssh -i $SSH_KEY" $SOURCE_DIR $VPS_USER@$VPS_HOST:$VPS_PATH
+    rsync -avz --zc=zstd --delete -e "ssh -i $SSH_KEY -p $PORT" $SOURCE_DIR $VPS_USER@$VPS_HOST:$VPS_PATH
 
     echo "Setting proper permissions..."
-    ssh -i "$SSH_KEY" "$VPS_USER@$VPS_HOST" "chown -R www-data:www-data $VPS_PATH && chmod -R 755 $VPS_PATH"
+    ssh -i "$SSH_KEY" "$VPS_USER@$VPS_HOST -p $PORT" "chown -R www-data:www-data $VPS_PATH && chmod -R 755 $VPS_PATH"
 
     echo "Upload complete!"
 }
