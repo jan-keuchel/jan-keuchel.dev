@@ -109,6 +109,7 @@ Die generierte Chipsequenz für den Satelliten $1$ sieht zum Beispiel so aus:
 ### Dekodierung
 
 
+{: .no-toc }
 #### Berechnung der gesendeten Bits
 Für jeden Satellit -- somit für jede Chipsequenz -- wird also für jedes Offset das Korrelationsprodukt berechnet.
 Wird ein "Ausschlag" gefunden -- in diesem Fall ein Korrelationsprodukt, welches vom Betrag her größer als `800` ist -- , kann der Satellit mit entsprechender Verschiebung $\delta$ und gesendetem Bit ausgegeben werden:
@@ -231,6 +232,7 @@ Bei den oben gelisteten Laufzeiten handelt es sich also um nicht optimierte Prog
 
 Es stellt sich die Frage: wie verhalten sich die Laufzeiten des `C`- bzw. `C++`-Progamms über die unterschiedlichen Optimierungsstufen hinweg.
 
+{: .no-toc}
 #### Zwischenergebnisse
 
 Dazu werden beide Programme in den genannten Optimierungsstufen kompiliert und deren Zeiten in einer Datei notiert.
