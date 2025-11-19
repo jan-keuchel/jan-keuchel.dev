@@ -65,15 +65,15 @@ Wie kann man also aus dem Summensignal wieder zurückrechnen, welche der Satelli
 Bildet man das Korrelationsprodukt aus dem Summensignal $\mathcal{S}$ und der Chipsequenz $c_i$ eines Satelliten $S_i$ bei einer Verschiebung um $\delta$, so können folgende Szenarien auftreten:
 
 - $S_i$ war keiner der Satelliten, der Daten gesendet hat.
-Somit ist $\mathcal{CH}_{i,\mathcal{S}}(\delta) \approx 0$.
+Somit ist $\mathcal{CP}_{i,\mathcal{S}}(\delta) \approx 0$.
 
 - $S_i$ hat Daten mit einer Verschiebung $\hat \delta \ne \delta$ gesendet.
-Also $\mathcal{CH}_{i,\mathcal{S}}(\delta) \approx 0$.
+Also $\mathcal{CP}_{i,\mathcal{S}}(\delta) \approx 0$.
 
 - $S_i$ hat Daten mit einer Verschiebung um $\hat \delta = \delta$ gesendet.
 In diesem Fall tritt eines der folgenden Szenarien auf:
-    - $S_i$ hat das Bit $b=1$ und somit $c_i$ gesendet: $\mathcal{CH}_{i,\mathcal{S}}(\delta) \approx c_i \cdot c_i = \vert c_i \vert$
-    - $S_i$ hat das Bit $b=0$ und somit $\overline{c_i}$ gesendet: $\mathcal{CH}_{i,\mathcal{S}}(\delta) \approx c_i \cdot (-c_i) = - \vert c_i \vert$
+    - $S_i$ hat das Bit $b=1$ und somit $c_i$ gesendet: $\mathcal{CP}_{i,\mathcal{S}}(\delta) \approx c_i \cdot c_i = \vert c_i \vert$
+    - $S_i$ hat das Bit $b=0$ und somit $\overline{c_i}$ gesendet: $\mathcal{CP}_{i,\mathcal{S}}(\delta) \approx c_i \cdot (-c_i) = - \vert c_i \vert$
 
 Um herauszufinden, welche Satelliten welche Bits gesendet haben muss man also pro Satellit $S_i$ und für jede Verschiebung $\delta$, $\mathcal{CP}_{i\mathcal{S}}(\delta)$ bilden und prüfen, ob ein Ausschlag in der Stärke des Korrelationsproduktes vorliegt.
 Falls ein solcher Ausschlag vorliegt, hat der Satellit entweder ein Eins-Bit (positiver Ausschlag) oder ein Null-Bit (negativer Ausschlag) gesendet.
