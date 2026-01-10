@@ -6,4 +6,5 @@ logo: /assets/images/HKA.png
 language: de
 pdf: /assets/lecture_notes_pdf/cg.pdf
 ongoing: true
+published: false
 ---
