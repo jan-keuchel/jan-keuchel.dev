@@ -1,5 +1,6 @@
 ---
 title: Getting started with GrapheneOS
+desc: 'Did you just install GrapheneOS? Here is one way of setting up your phone.'
 date: 2026-02-10
 language: en
 ongoing: false
