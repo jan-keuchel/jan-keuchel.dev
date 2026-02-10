@@ -1,6 +1,6 @@
 ---
 title: Getting started with GrapheneOS
-date: 2026-02-09
+date: 2026-02-10
 language: en
 ongoing: false
 published: true
