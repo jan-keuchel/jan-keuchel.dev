@@ -2,6 +2,10 @@
 <html>
     <head>
         <title>keuchel.dev</title>
+
+        {{ if .Param "math" }}
+            {{ partialCached "math.html" . }}
+        {{ end }}
     </head>
     <body>
         {{ partial "header.html" }}
