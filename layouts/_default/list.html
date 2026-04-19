@@ -1,19 +1,19 @@
 {{ define "main" }}
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
 
-    <h2>Blog Posts</h2>
-    <ul>
-        {{ range .Site.RegularPages }}
-        {{ if eq .Section "posts" }}
-        <li>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            <div>{{ .Date.Format "January 2, 2006" }}</div>
-            <div>{{ .Summary }}</div>
-        </li>
-        {{ end }}
-        {{ end }}
-    </ul>
+<h2>Blog Posts</h2>
+<ul>
+    {{ range .Site.RegularPages }}
+    {{ if eq .Section "posts" }}
+    <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <div>{{ .Date.Format "January 2, 2006" }}</div>
+        <div>{{ .Summary }}</div>
+    </li>
+    {{ end }}
+    {{ end }}
+</ul>
 
-    <p>This text is coming from the <code>/layouts/_default/list.html</code> file.</p>
+<p>This text is coming from the <code>/layouts/_default/list.html</code> file.</p>
 {{ end }}
