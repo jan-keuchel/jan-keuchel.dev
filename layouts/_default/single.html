@@ -1,4 +1,11 @@
-{{ define "main" }}
-    {{ .Content }}
-    <p>This line is from <code>layouts/single.html</code>.</p>
-{{ end }}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{ .Page.Title }}</title>
+    </head>
+
+    <body>
+        {{ .Content }}
+    </body>
+</html>

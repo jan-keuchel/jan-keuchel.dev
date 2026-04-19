@@ -6,8 +6,8 @@
     </head>
 
     <body>
-        {{ block "main" . }}
+        {{ define "main" }}
+            {{ .Content }}
         {{ end }}
     </body>
 </html>
-
