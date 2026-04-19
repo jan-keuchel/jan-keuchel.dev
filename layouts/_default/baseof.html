@@ -4,18 +4,12 @@
         <title>{{ .Title }}</title>
     </head>
     <body>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/files/cv.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
-                <li><a href="/projects">Projects</a></li>
-                <li><a href="/lectures">Lecture Notes</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
+        {{ partial "header.html" }}
 
         {{ block "main" . }}{{ end }}
 
         <p>This text is coming from the <code>/layouts/_default/baseof.html</code> file.</p>
+
+        {{ partial "footer.html" }}
     </body>
 </html>
