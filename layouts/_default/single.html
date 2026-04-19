@@ -1,11 +1,6 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>{{ .Page.Title }}</title>
-    </head>
+{{ define "main" }}
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
 
-    <body>
-        {{ .Content }}
-    </body>
-</html>
+    <p>This text is coming from the <code>/layouts/_default/single.html</code> file.</p>
+{{ end }}
