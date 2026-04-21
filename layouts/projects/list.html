@@ -3,12 +3,17 @@
 {{ .Content }}
 
 <h2>Projects</h2>
-<ul>
+<div class="cards-container">
     {{ range .Pages }}
-    <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <div>{{ .Summary }}</div>
-    </li>
+    <article class="card">
+        <h3 class="card-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h3>
+        <p class="card-summary">{{ .Summary }}</p>
+        <time class="card-date" datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date.Format "January 2, 2006" }}
+        </time>
+    </article>
     {{ end }}
-</ul>
+</div>
 {{ end }}

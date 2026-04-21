@@ -3,17 +3,20 @@
 {{ .Content }}
 
 <h2>Blog Posts</h2>
-<ul>
+<div class="cards-container">
     {{ range .Site.RegularPages }}
     {{ if eq .Section "posts" }}
-    <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <div>{{ .Date.Format "January 2, 2006" }}</div>
-        <div>{{ .Summary }}</div>
-    </li>
+    <article class="card">
+        <h3 class="card-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h3>
+        <p class="card-summary">{{ .Summary }}</p>
+        <time class="card-date" datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date.Format "January 2, 2006" }}
+        </time>
+    </article>
     {{ end }}
     {{ end }}
-</ul>
-
+</div>
 <p>This text is coming from the <code>/layouts/_default/list.html</code> file.</p>
 {{ end }}
