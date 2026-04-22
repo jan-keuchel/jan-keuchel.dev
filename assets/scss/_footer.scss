@@ -1,0 +1,43 @@
+// Variables (reusing from _header.scss and _cards.scss)
+$bg-dark: #121212;
+$text-light: #e0e0e0;
+$accent-red: #ff4444;
+$text-dim: #888888;
+$border-dark: #333333;
+
+// Footer styles
+footer {
+    background-color: $bg-dark;
+    padding: 2rem;
+    border-top: 1px solid $border-dark;
+    margin-top: 2rem;
+    text-align: center;
+
+    p {
+        margin: 0 0 1rem 0;
+        color: $text-light;
+        font-size: 1rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+
+        li {
+            a {
+                color: $text-light;
+                text-decoration: none;
+                font-size: 1rem;
+                transition: color 0.2s ease;
+
+                &:hover {
+                    color: $accent-red;
+                }
+            }
+        }
+    }
+}

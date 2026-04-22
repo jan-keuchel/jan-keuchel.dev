@@ -13,9 +13,9 @@
     <body>
         {{ partial "header.html" }}
 
-        {{ block "main" . }}{{ end }}
-
-        <p>This text is coming from the <code>/layouts/_default/baseof.html</code> file.</p>
+        <div class="content-body">
+            {{ block "main" . }}{{ end }}
+        </div>
 
         {{ partial "footer.html" }}
     </body>

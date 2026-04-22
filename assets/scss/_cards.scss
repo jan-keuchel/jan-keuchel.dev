@@ -1,90 +1,59 @@
-// Import any variables or mixins (optional)
-$card-border-color: #ddd;
-$card-bg-color: #fff;
-$card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-$card-hover-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-$text-color: #333;
-$text-secondary-color: #666;
-$text-meta-color: #999;
+// Variables (reusing from _header.scss)
+$bg-dark: #121212;
+$text-light: #e0e0e0;
+$accent-red: #ff4444;
+$text-dim: #888888;
+$border-dark: #333333;
 
-// Cards container (wraps all cards)
+// Cards container
 .cards-container {
-  // Use CSS Grid for layout
-  display: grid;
-  // Auto-fill creates as many columns as fit, each at least 300px wide
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  // Space between cards
-  gap: 1.5rem;
-  // Padding around the container
-  padding: 1rem;
-  // Visual guide: Add a border to see the container boundaries
-  // border: 1px dashed red;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0;
 }
 
-// Individual card
+// Card styles
 .card {
-  // Card border
-  border: 1px solid $card-border-color;
-  // Rounded corners
-  border-radius: 8px;
-  // Background color
-  background: $card-bg-color;
-  // Shadow for depth
-  box-shadow: $card-shadow;
-  // Transition for hover effects
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  // Padding inside the card
-  padding: 1.5rem;
-  // Visual guide: Add a border to see the card boundaries
-  // border: 1px dashed blue;
-}
+    background-color: $bg-dark;
+    border: 1px solid $border-dark;
+    border-radius: 4px;
+    padding: 0; // Remove padding from the card, add it to the link instead
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-// Card hover effect
-.card:hover {
-  // Lift the card slightly on hover
-  transform: translateY(-5px);
-  // Enhance the shadow on hover
-  box-shadow: $card-hover-shadow;
-  // Visual guide: Add a border to see the card boundaries on hover
-  // border: 1px dashed green;
-}
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
 
-// Card title
-.card-title {
-  // Remove default margin
-  margin-top: 0;
-  // Text color
-  color: $text-color;
-  // Visual guide: Add a border to see the title boundaries
-  // border: 1px dashed orange;
-}
+    .card-link {
+        display: block;
+        padding: 1.2rem;
+        color: inherit;
+        text-decoration: none;
+        height: 100%;
+        width: 100%;
 
-// Card title link
-.card-title a {
-  // Remove underline from links
-  text-decoration: none;
-  // Inherit the text color from the parent
-  color: inherit;
-  // Visual guide: Add a border to see the link boundaries
-  // border: 1px dashed purple;
-}
+        &:hover {
+            color: inherit; // Prevent text color change on hover
+        }
+    }
 
-// Card summary
-.card-summary {
-  // Text color for the summary
-  color: $text-secondary-color;
-  // Space below the summary
-  margin-bottom: 1rem;
-  // Visual guide: Add a border to see the summary boundaries
-  // border: 1px dashed cyan;
-}
+    .card-title {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.3rem;
+        color: $text-light;
+    }
 
-// Card date
-.card-date {
-  // Text color for the date
-  color: $text-meta-color;
-  // Smaller font size for meta info
-  font-size: 0.9rem;
-  // Visual guide: Add a border to see the date boundaries
-  // border: 1px dashed magenta;
+    .card-summary {
+        margin: 0 0 0.8rem 0;
+        color: $text-dim;
+        font-size: 0.95rem;
+    }
+
+    .card-date {
+        display: block;
+        color: $text-dim;
+        font-size: 0.85rem;
+    }
 }
