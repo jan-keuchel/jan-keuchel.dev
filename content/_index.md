@@ -2,6 +2,9 @@
 date: 2026-04-19
 ---
 
-# My webpage!
+## Hello there,
+my name is Jan.
 
-This is my **homepage**, written in Markdown!
+I'm a Computer Science student currently doing an internship in Cologne.
+
+On my webpage, I publish blogs, share lecture notes and showcase some of my projects.

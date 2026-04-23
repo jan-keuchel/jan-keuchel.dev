@@ -1,8 +1,7 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
+
 {{ .Content }}
 
-<h2>Blog Posts</h2>
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
 {{ partial "card-list.html" $posts }}
 <p>This text is coming from the <code>/layouts/_default/list.html</code> file.</p>
