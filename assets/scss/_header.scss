@@ -11,12 +11,15 @@ $border-dark: #333333;
     padding: 1.5rem 2rem;
     border-bottom: 1px solid $border-dark;
 
+    display: flex;
+    flex-direction: column;    // Stack the title and nav vertically
+    align-items: center;       // Center everything horizontally
+    text-align: center;        // Center title text
+
     .header-title {
         margin-bottom: 1rem;
-
         .title-text {
             margin: 0;
-            font-size: 1.8rem;
             color: $text-light;
 
             .title-link {
@@ -33,22 +36,23 @@ $border-dark: #333333;
 
     .site-nav {
         .nav-list {
+            display: flex;
+            justify-content: center; // Center the nav items horizontally
+            gap: 1.5rem;             // Space between the items
             list-style: none;
             padding: 0;
             margin: 0;
-            display: flex;
-            gap: 1.5rem;
+        }
 
-            .nav-item {
-                .nav-link {
-                    color: $text-light;
-                    text-decoration: none;
-                    font-size: 1.1rem;
-                    transition: color 0.2s ease;
+        .nav-item {
+            .nav-link {
+                color: $text-light;
+                text-decoration: none;
+                font-size: 1.1rem;
+                transition: color 0.2s ease;
 
-                    &:hover {
-                        color: $accent-red;
-                    }
+                &:hover {
+                    color: $accent-red;
                 }
             }
         }
