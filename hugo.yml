@@ -22,3 +22,26 @@ markup:
         enable: true
 params:
   math: true
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      pageRef: /
+      weight: 1
+    - identifier: projects
+      name: Projects
+      pageRef: /projects/
+      weight: 2
+    - identifier: lectures
+      name: Lecture Notes
+      pageRef: /lectures/
+      weight: 3
+    - identifier: contact
+      name: Contact
+      pageRef: /contact/
+      weight: 4
+    - identifier: cv
+      name: CV
+      pageRef: /files/cv.pdf
+      weight: 5
