@@ -4,6 +4,7 @@ $text-light: #e0e0e0;
 $accent-red: #ff6666;
 $text-dim: #888888;
 $border-dark: #333333;
+$legal-link-color: #5C64FF;
 
 // Base styles for the entire site
 html, body {
@@ -61,6 +62,22 @@ footer {
   padding: 1rem;
   text-align: center;
   flex-shrink: 0; // Prevent the footer from shrinking
+}
+
+.px24-svg svg {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+}
+
+.obligaroty-links {
+  text-decoration: none;
+  color: $legal-link-color;
+  font-size: 0.75em;
+}
+.obligaroty-links:hover {
+  color: $legal-link-color;
+  text-decoration: underline;
 }
 
 // Typography
