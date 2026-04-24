@@ -18,14 +18,17 @@ $border-dark: #333333;
     background-color: $bg-dark;
     border: 1px solid $border-dark;
     border-radius: 4px;
-    padding: 0; // Remove padding from the card, add it to the link instead
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; // Add background-color to transition
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.03); // Default subtle shadow
 
     &:hover {
         transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05); // Shadow effect on hover
+        background-color: lighten($bg-dark, 3%); // Slightly lighter background on hover
     }
 
+    // Rest of your styles remain the same
     .card-link {
         display: block;
         padding: 1.2rem;
@@ -35,7 +38,7 @@ $border-dark: #333333;
         width: 100%;
 
         &:hover {
-            color: inherit; // Prevent text color change on hover
+            color: inherit;
         }
     }
 
