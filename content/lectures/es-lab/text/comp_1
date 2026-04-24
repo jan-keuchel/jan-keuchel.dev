@@ -1,0 +1,13 @@
+{% raw %}
+--- C ---
+C -O0: gen=1.809 ms,   translate=0.099 ms, cp=39.351 ms,  total=41.260 ms
+C -O1: gen=0.243 ms,   translate=0.011 ms, cp=27.503 ms,  total=27.757 ms
+C -O2: gen=0.277 ms,   translate=0.013 ms, cp=21.972 ms,  total=22.261 ms
+C -O3: gen=0.195 ms,   translate=0.005 ms, cp=21.930 ms,  total=22.130 ms
+
+--- C++ ---
+C++ -O0: gen=3.442 ms, translate=0.411 ms, cp=126.900 ms, total=130.754 ms
+C++ -O1: gen=0.121 ms, translate=0.041 ms, cp=30.061 ms,  total=30.224 ms
+C++ -O2: gen=0.066 ms, translate=0.046 ms, cp=21.643 ms,  total=21.756 ms
+C++ -O3: gen=0.062 ms, translate=0.043 ms, cp=22.134 ms,  total=22.240 ms
+{% endraw %}

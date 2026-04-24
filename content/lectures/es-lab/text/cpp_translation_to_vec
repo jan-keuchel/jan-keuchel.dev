@@ -1,0 +1,23 @@
+{% raw %}
+std::array<int, SEQ_LEN> translate_bitset_to_arr(std::bitset<SEQ_LEN> bs) {
+    std::array<int, SEQ_LEN> arr;
+    for (size_t i = 0; i < bs.size(); i++) {
+        arr[i] = bs[i] ? 1 : -1;
+    }
+
+    return arr;
+}
+
+// [...]
+
+int main(int argc, char *argv[]) {
+
+    // [...]
+
+    std::array<std::bitset<SEQ_LEN>, 24> chip_sequences;
+    for (size_t i = 0; i < register_sums.size(); i++) {
+        chip_sequences[i] = generate_chip_seq(register_sums[i]);
+    }
+
+}
+{% endraw %}
