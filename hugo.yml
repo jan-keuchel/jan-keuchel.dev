@@ -25,23 +25,21 @@ params:
 
 menu:
   main:
-    - identifier: home
-      name: Home
-      pageRef: /
-      weight: 1
-    - identifier: projects
-      name: Projects
-      pageRef: /projects/
-      weight: 2
-    - identifier: lectures
-      name: Lecture Notes
-      pageRef: /lectures/
-      weight: 3
-    - identifier: contact
-      name: Contact
-      pageRef: /contact/
-      weight: 4
-    - identifier: cv
-      name: CV
-      pageRef: /files/cv.pdf
-      weight: 5
+    - name: 'Home'
+      url: '/'
+      weight: 10
+    - name: 'CV'
+      url: '/files/cv.pdf'
+      weight: 15
+    - name: 'Projects'
+      url: '/projects'
+      weight: 20
+    - name: 'Lectures'
+      url: '/lectures'
+      weight: 30
+    - name: 'Certificates'
+      url: '/certificates'
+      weight: 40
+    - name: 'Contact'
+      url: '/contact'
+      weight: 50
