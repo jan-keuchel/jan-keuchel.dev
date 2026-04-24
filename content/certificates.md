@@ -8,3 +8,5 @@ title: Certificates
 - [Web Fundamentals](/files/THM_Web_Fundamentals.pdf)
 - [Junior Penetration Tester](/files/THM_Jr_Penetration_Tester.pdf)
 
+## QUIRSO
+- [Incident Readiness and Response Exercise](/files/IRRE.pdf)
