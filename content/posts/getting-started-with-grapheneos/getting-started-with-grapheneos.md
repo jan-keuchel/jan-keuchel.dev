@@ -1,6 +1,6 @@
 ---
 title: "Getting Started with GrapheneOS"
-date: 2026-04-19
+date: 2026-02-10
 summary: "A guide to installing and using GrapheneOS."
 ---
 

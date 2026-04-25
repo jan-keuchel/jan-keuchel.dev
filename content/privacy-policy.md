@@ -1,6 +1,7 @@
 ---
 title: Privacy Policy
 date: 2026-04-24
+layout: mainpage
 ---
 ## Privacy Policy
 
