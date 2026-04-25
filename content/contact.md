@@ -1,5 +1,6 @@
 ---
 title: Contact
+layout: mainpage
 ---
 You can always send me encrypted mails using my public PGP key:
 

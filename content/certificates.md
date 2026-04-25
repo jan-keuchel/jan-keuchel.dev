@@ -1,5 +1,6 @@
 ---
 title: Certificates
+layout: mainpage
 ---
 
 ## TryHackMe
