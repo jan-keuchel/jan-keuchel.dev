@@ -145,20 +145,29 @@ main {
   border-left: 6px solid color-mix(in srgb, $bg-dark 60%, $note-accent-blue);
 }
 
-// red
 .highlight-warning {
   background: color-mix(in srgb, $bg-dark 90%, $note-accent-red);
   border-left: 6px solid color-mix(in srgb, $bg-dark 60%, $note-accent-red);
 }
 
-// green
 .highlight-hint {
   background: color-mix(in srgb, $bg-dark 90%, $note-accent-green);
   border-left: 6px solid color-mix(in srgb, $bg-dark 60%, $note-accent-green);
 }
 
-// orange
 .highlight-important {
   background: color-mix(in srgb, $bg-dark 90%, $note-accent-orange);
   border-left: 6px solid color-mix(in srgb, $bg-dark 60%, $note-accent-orange);
+}
+
+//  TOC
+.toc {
+  background: color-mix(in srgb, $bg-dark 95%, white);
+  border-radius: 0.5em;
+  padding: 0.5em 0;
+  margin-bottom: 2rem;
+
+  .heading {
+    padding-left: 1rem;
+  }
 }

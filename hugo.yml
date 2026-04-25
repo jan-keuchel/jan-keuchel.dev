@@ -22,6 +22,10 @@ markup:
         enable: true
     renderer:
       unsafe: true
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 2
 params:
   math: true
 
