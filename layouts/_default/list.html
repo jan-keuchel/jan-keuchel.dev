@@ -3,6 +3,7 @@
 {{ .Content }}
 
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
+
 {{ partial "card-list.html" $posts }}
-<p>This text is coming from the <code>/layouts/_default/list.html</code> file.</p>
+
 {{ end }}
