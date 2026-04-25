@@ -26,6 +26,8 @@ markup:
     endLevel: 3
     ordered: false
     startLevel: 2
+  highlight:
+    style: "tokyonight-night"
 params:
   math: true
 
@@ -39,10 +41,10 @@ menu:
       pageRef: 'cv'
       url: '/files/cv.pdf'
       weight: 15
-    - name: 'Projects'
-      pageRef: 'projects'
-      url: '/projects'
-      weight: 20
+    # - name: 'Projects'
+      # pageRef: 'projects'
+      # url: '/projects'
+      # weight: 20
     - name: 'Lectures'
       pageRef: 'lectures'
       url: '/lectures'
