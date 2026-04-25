@@ -58,6 +58,13 @@ body {
     display: block;
     margin: 1em auto;
   }
+
+  // SVGs
+  .svg-fill-background svg {
+    width: 90%;
+    height: 100%;
+    filter: invert(1) hue-rotate(180deg);
+  }
 }
 
 // Header container
