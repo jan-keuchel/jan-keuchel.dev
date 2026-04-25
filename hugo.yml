@@ -30,6 +30,7 @@ markup:
     style: "tokyonight-night"
 params:
   math: true
+enableRobotsTXT: true
 
 menu:
   main:
