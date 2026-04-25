@@ -6,6 +6,11 @@ $text-dim: #888888;
 $border-dark: #333333;
 $legal-link-color: #999eff;
 
+$note-accent-red: #F2545B;
+$note-accent-green: #4DE6AC;
+$note-accent-blue: #64B5F6;
+$note-accent-orange: #FF8F33;
+
 // Base styles for the entire site
 html, body {
   height: 100%;
@@ -125,4 +130,35 @@ pre code {
 main {
   flex: 1;
   padding: 1rem 0;
+}
+
+// Highlights
+.highlight-block {
+  padding: 0.8em 1.0em;
+  margin: 0.75rem 0rem;
+  font-size: 1rem;
+  color: $text-light
+}
+
+.highlight-note {
+  background: color-mix(in srgb, $bg-dark 90%, $note-accent-blue);
+  border-left: 6px solid color-mix(in srgb, $bg-dark 60%, $note-accent-blue);
+}
+
+// red
+.highlight-warning {
+  background: color-mix(in srgb, $bg-dark 90%, $note-accent-red);
+  border-left: 6px solid color-mix(in srgb, $bg-dark 60%, $note-accent-red);
+}
+
+// green
+.highlight-hint {
+  background: color-mix(in srgb, $bg-dark 90%, $note-accent-green);
+  border-left: 6px solid color-mix(in srgb, $bg-dark 60%, $note-accent-green);
+}
+
+// orange
+.highlight-important {
+  background: color-mix(in srgb, $bg-dark 90%, $note-accent-orange);
+  border-left: 6px solid color-mix(in srgb, $bg-dark 60%, $note-accent-orange);
 }
