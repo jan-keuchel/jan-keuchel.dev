@@ -1,9 +1,0 @@
-$terminal:kitty
-$fileManager:nemo
-$menu:rofi -show drun
-$browser:brave
-$gimp:gimp
-$virt_manager:virt-manager
-$mail:thunderbird
-$display_settings:nwg-displays
-$darktable:darktable
