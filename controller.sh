@@ -1,33 +1,34 @@
 #/bin/bash
 
 # This script was taken from Tomáš Sláma: https://slama.dev/
+# (Then it was modified...)
 
 serve() {
-    echo "Starting Jekyll development server..."
-    if pgrep -f "ruby.*jekyll" > /dev/null; then
-        echo "ERROR: Jekyll seems to be running already."
+    echo "Starting Hugo development server..."
+    if pgrep -f "hugo serve" > /dev/null; then
+        echo "ERROR: Hugo server seems to be running already."
         return 1
     fi
-    bundle exec jekyll serve --livereload --trace --config _config.yml
+    hugo serve --buildDrafts --buildFuture --disableFastRender
 }
 
 clean() {
-    echo "Cleaning Jekyll site..."
-    bundle exec jekyll clean --trace
+    echo "Cleaning Hugo site..."
+    rm -rf public/
 }
 
 build() {
-    echo "Building Jekyll site..."
-    if pgrep -f "ruby.*jekyll" > /dev/null; then
-        echo "ERROR: Jekyll seems to be running already."
+    echo "Building Hugo site..."
+    if pgrep -f "hugo serve" > /dev/null; then
+        echo "ERROR: Hugo server seems to be running already."
         return 1
     fi
-    bundle exec jekyll build --trace
+    hugo --gc --minify
 }
 
 check_localhost() {
     echo "Checking for localhost references..."
-    if grep -r "localhost:4000" _site/**/*.html > /dev/null 2>&1; then
+    if grep -r "localhost:1313" public/**/*.html > /dev/null 2>&1; then
         echo "ERROR: Found 'localhost' in HTML files, not uploading!"
         return 1
     else
@@ -37,7 +38,7 @@ check_localhost() {
 }
 
 upload() {
-    echo "Sourcing for config file..."
+    echo "Sourcing config file..."
     if [[ -f ./.deploy-config ]]; then
         source ./.deploy-config
     else
@@ -45,7 +46,6 @@ upload() {
         exit 1
     fi
 
-    # Check
     echo -n "Are you sure you want to upload to VPS? (y/n): "
     read -r answer
     if [[ ! "$answer" =~ ^[Yy]$ ]]; then
@@ -55,7 +55,6 @@ upload() {
 
     echo "Uploading site to VPS..."
 
-    # Check for localhost references first
     if ! check_localhost; then
         return 1
     fi
@@ -89,8 +88,8 @@ case "$1" in
         echo "Usage: ./controller.sh [serve|clean|build|upload|all]"
         echo ""
         echo "Commands:"
-        echo "  serve   - Start development server with drafts and future posts"
-        echo "  clean   - Clean generated files"
+        echo "  serve   - Start Hugo dev server (drafts + future posts)"
+        echo "  clean   - Remove generated files (public/)"
         echo "  build   - Build the site"
         echo "  upload  - Check for localhost and upload to VPS"
         echo "  all     - Build and upload"
