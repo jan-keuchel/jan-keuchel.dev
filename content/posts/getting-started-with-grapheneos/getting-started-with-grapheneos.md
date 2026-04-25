@@ -131,7 +131,7 @@ Settings > System > Users > Send notifications to current user: **`true`**.
 I enabled this setting for the user profiles `Owner`, `Main` and `Banking`.
 
 <div class="highlight-block highlight-note">
-This means that I won't be notified if someone writes me a message via WhatsApp. I'm gonna have to manually switch profiles into the `Google` profile to check it.
+This means that I won't be notified if someone writes me a message via WhatsApp. I'm gonna have to manually switch profiles into the <code>Google</code> profile to check it.
 </div>
 
 ### Installing applications
