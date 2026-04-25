@@ -62,7 +62,10 @@ body {
   // SVGs
   .svg-fill-background svg {
     width: 90%;
-    height: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em auto;
     filter: invert(1) hue-rotate(180deg);
   }
 }
