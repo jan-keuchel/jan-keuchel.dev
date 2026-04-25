@@ -4,7 +4,7 @@ layout: mainpage
 ---
 You can always send me encrypted mails using my public PGP key:
 
-```
+<pre id=pgp-key>
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 mDMEaRAfMRYJKwYBBAHaRw8BAQdAcUtye9eVDh9ex1G6me8lODIgsAJTDkj1VqwR
 AsAXYYy0HUphbiBLZXVjaGVsIDxqYW5Aa2V1Y2hlbC5kZXY+iJYEExYKAD4WIQRQ
@@ -17,9 +17,9 @@ AeEzgAAKCRAY0xK7X6hajNw5AQDh8k0EkHENoGmPM9J/mJ93W4XOroPHA1NDNNP6
 V+8vKAD/a9EWntHObmYmabkm6gh25Ylpgi9WPAXVtcyEH+eDYAQ=
 =FPmO
 -----END PGP PUBLIC KEY BLOCK-----
-```
+</pre>
 
-<a href="/pgp/keucheldev.asc" download>Download PGP key as .asc file</a>
+Download my public PGP key: <a href="/pgp/keucheldev.asc" download>keucheldev.asc</a>
 
 **Fingerprint:** `5089 A126 7368 56F7 A019 A0EE 18D3 12BB 5FA8 5A8C`
 
