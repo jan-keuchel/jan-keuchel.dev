@@ -9,6 +9,8 @@
 
         {{ $styles := resources.Get "scss/main.scss" | toCSS | minify }}
         <style>{{ $styles.Content | safeCSS }}</style>
+
+        <link rel="icon" href="/favicon.ico">
     </head>
     <body>
         {{ partial "header.html" . }}
