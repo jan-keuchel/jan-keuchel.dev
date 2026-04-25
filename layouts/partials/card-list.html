@@ -1,0 +1,15 @@
+<div class="cards-container">
+    {{ range . }}
+    <article class="card">
+        <a href="{{ .RelPermalink }}" class="card-link">
+            <h3 class="card-title">
+                {{ .Title }}
+            </h3>
+            <p class="card-summary">{{ .Summary }}</p>
+            <time class="card-date" datetime="{{ .Date.Format "2006-01-02" }}">
+                {{ .Date.Format "02.01.2006" }}
+            </time>
+        </a>
+    </article>
+    {{ end }}
+</div>

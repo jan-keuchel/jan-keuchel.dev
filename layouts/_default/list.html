@@ -1,0 +1,9 @@
+{{ define "main" }}
+
+{{ .Content }}
+
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+
+{{ partial "card-list.html" $posts }}
+
+{{ end }}

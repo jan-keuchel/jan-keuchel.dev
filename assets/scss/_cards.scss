@@ -1,0 +1,62 @@
+// Variables (reusing from _header.scss)
+$bg-dark: #121212;
+$text-light: #e0e0e0;
+$accent-red: #ff4444;
+$text-dim: #888888;
+$border-dark: #333333;
+
+// Cards container
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+// Card styles
+.card {
+    background-color: $bg-dark;
+    border: 1px solid $border-dark;
+    border-radius: 4px;
+    padding: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; // Add background-color to transition
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.03); // Default subtle shadow
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05); // Shadow effect on hover
+        background-color: lighten($bg-dark, 3%); // Slightly lighter background on hover
+    }
+
+    // Rest of your styles remain the same
+    .card-link {
+        display: block;
+        padding: 1.2rem;
+        color: inherit;
+        text-decoration: none;
+        height: 100%;
+        width: 100%;
+
+        &:hover {
+            color: inherit;
+        }
+    }
+
+    .card-title {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.3rem;
+        color: $text-light;
+    }
+
+    .card-summary {
+        margin: 0 0 0.8rem 0;
+        color: $text-dim;
+        font-size: 0.95rem;
+    }
+
+    .card-date {
+        display: block;
+        color: $text-dim;
+        font-size: 0.85rem;
+    }
+}

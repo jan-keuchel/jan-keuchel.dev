@@ -1,0 +1,20 @@
+<header class="site-header">
+    <div class="header-title">
+        <h1 class="title-text"><a href="/" class="title-link">keuchel.dev</a></h1>
+    </div>
+
+    <nav class="site-nav">
+        <ul class="nav-list">
+            {{ $currentPage := .}}
+            {{ range .Site.Menus.main }}
+            <li class="nav-item">
+                <a 
+                    class="nav-link {{ if $currentPage.IsMenuCurrent "main" . }}is-active{{ end }}" 
+                    href="{{ .URL }}">
+                    {{ .Name }}
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+    </nav>
+</header>
