@@ -555,12 +555,12 @@ Bei `C++` sieht es wie folgt aus:
 
 <div class="highlight-block highlight-important">
 
-**Fazit:** Die Code-Optimierung ohne Compiler-Optimierung bringt also bei `C++` eine Verbesserung um $13\%$ und bei `C` um $30\%$.
+**Fazit:** Die Code-Optimierung ohne Compiler-Optimierung bringt also bei `C++` eine Verbesserung um $13$% und bei `C` um $30$%.
 Dies ist bereits substantiell.
 Interessant ist allerdings, dass die Verbeserung erst richtig zu tragen kommt, wenn dazu noch eine Compiler-Optimierung verwendet wird.
-Hierdurch erreicht man bei `C++` Verbesserungen von bis zu $82\%$ und bei `C` bis zu $83\%$.
+Hierdurch erreicht man bei `C++` Verbesserungen von bis zu $82$% und bei `C` bis zu $83$%.
 </div>
 
 ## Anhang
 
-<a href="/data/C_Cpp_Comparison.csv">Download .csv file</a>
+<a href="/lectures/es-lab/downloads/C_Cpp_Comparison.csv">Download .csv file</a>
