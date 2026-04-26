@@ -12,6 +12,11 @@ $note-accent-blue: #64B5F6;
 $note-accent-orange: #FF8F33;
 
 // Base styles for the entire site
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -21,8 +26,9 @@ html, body {
 body {
   background-color: $bg-dark;
   color: $text-light;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: -apple-systrem, BlinkMacSystremFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.6;
+  font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   min-height: 100vh; // Ensure the body takes up at least the full viewport height
@@ -32,7 +38,7 @@ body {
 .content-body {
   max-width: 750px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: clamp(1rem, 4vw, 2rem);
   width: 100%;
   flex: 1; // Allow the content to grow and push the footer down
 
@@ -40,8 +46,8 @@ body {
     color: $accent-red;
     text-decoration: none;
     transition: background-color 0.1s ease;
-    padding: 0.2em 0;
-    border-radius: 0.2em;
+    padding: 0.2rem 0;
+    border-radius: 0.2rem;
 
     &:hover {
       color: $accent-red;
@@ -56,7 +62,7 @@ body {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 1em auto;
+    margin: 1rem auto;
   }
 
   // SVGs
@@ -65,7 +71,7 @@ body {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 1em auto;
+    margin: 1rem auto;
     filter: invert(1) hue-rotate(180deg);
   }
 }
@@ -101,7 +107,7 @@ footer {
 .obligaroty-links {
   text-decoration: none;
   color: $legal-link-color;
-  font-size: 0.75em;
+  font-size: 0.75rem;
 }
 .obligaroty-links:hover {
   color: $legal-link-color;
@@ -136,7 +142,6 @@ p {
 
 #pgp-key {
   // display: inline-block;
-  font-size: 1.25em;
   overflow-x: auto;
   padding: 1rem;
   background-color: lighten($bg-dark, 10%);
@@ -148,7 +153,7 @@ p {
   max-height: 800px;
   overflow-x: auto;
   overflow-y: auto;
-  padding: 1em;
+  padding: 1rem;
 }
 
 code {
@@ -157,7 +162,7 @@ code {
   padding: 0.2rem 0.4rem;
   border-radius: 3px;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 
 pre code {
@@ -174,7 +179,7 @@ main {
 
 // Highlights
 .highlight-block {
-  padding: 0.8em 1.0em;
+  padding: 0.8rem 1.0rem;
   margin: 0.75rem 0rem;
   font-size: 1rem;
   color: $text-light
@@ -203,11 +208,19 @@ main {
 //  TOC
 .toc {
   background: color-mix(in srgb, $bg-dark 95%, white);
-  border-radius: 0.5em;
-  padding: 0.5em 0;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
   margin-bottom: 2rem;
 
   .heading {
     padding-left: 1rem;
+  }
+}
+
+// Responsive  adjustments
+@media (max-width: 768px) {
+
+  body {
+    font-size: 1.0rem;
   }
 }
